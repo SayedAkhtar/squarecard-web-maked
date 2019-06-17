@@ -23,16 +23,6 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -43,7 +33,11 @@ class ArticleController extends Controller
         //Create new article
         $article = new Article;
         $article->title = $request->title;
-        $article->body = $request->body;
+        if($request->body != "" || $request->body != null){
+            $article->body = $request->body;
+        }else{
+            $article->body = "";
+        }
         $article->save();
 
         return new ArticleResource($article);
@@ -55,7 +49,7 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         //Get a single article
         $article = Article::find($id);
@@ -75,7 +69,7 @@ class ArticleController extends Controller
         $article->title = $request->title;
         $article->body = $request->body;
         $article->save();
-        return $request;
+        return $article;
 
     }
 

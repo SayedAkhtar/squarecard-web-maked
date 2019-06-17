@@ -1,0 +1,447 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Karla:400,400i,700,700i');
+
+$style-font: 'Abril Fatface', cursive;
+$primary-font: 'Karla', sans-serif;
+
+$primary-color: #FAA38C;
+$secondary-color: #FFF1ED;
+$white: #fff;
+html{
+    overflow-x:hidden; 
+}
+
+body{
+    background: $primary-color;
+    height: 100vh;
+    font-family: $primary-font;
+    position: relative;
+    overflow-x: hidden;
+}
+
+// ========= Bootstrap Resets ==========//
+.card{
+    border: none;
+    border-radius: 10px;
+
+    &-img{
+        border-radius: 10px;
+    }
+}
+.text-dark{
+    color: #000!important;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=date]::-webkit-inner-spin-button, 
+input[type=date]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+[type=button]{
+    -webkit-appearance: inherit;
+}
+.form-group{
+    position: relative;
+}
+.form-control:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    & ~ #appended-text{
+        top: -18px;
+    }
+}
+.form-control{
+    margin-bottom: 20px;
+    position: relative;
+    border-radius: 24px;
+    border-color: transparent;
+    z-index:2;
+
+    &.login{
+    border-bottom:1px solid #ced4da;
+    }
+    &.signup{
+    border-bottom:1px solid #ced4da;
+    }
+}
+
+a:active{
+    box-shadow: none;
+}
+// -------------------Bootstrap Reset Ends -----------------//
+
+
+//==================== Misceleneous Styles
+.main-container{
+    height: 100vh;
+    background: $secondary-color;
+    overflow-y: scroll;
+}
+.btn-submit{
+    border-radius: 100px;
+    background: $primary-color;
+    margin: 0px 4px;
+}
+.btn-cancel, .btn-secondary{
+    border-radius: 100px;
+    background: white;
+    margin: 0px 4px;
+    color: #000;
+    border:none;
+}
+
+.btn-dashboard{
+    padding: 0.75rem;
+    width:85px;
+
+    &:hover{
+        background: #fff;
+    }
+
+    &:not(:last-child){
+        margin-right: 32px;
+    }
+    & img{
+        height: 32px;
+    }
+}
+.no-link-style{
+    color: inherit;
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: none !important;
+    }
+}
+
+.add-button{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $primary-color;
+    border-radius: 100%;
+    font-size: 2rem;
+    margin: 0 auto;
+    
+    & a{
+        color: #fff;
+        &:hover{
+            color: $secondary-color;
+        }
+    }
+
+}
+// ------------------ End Misceleneous Styles
+
+
+
+// ================ Login Page Styles ================ //
+
+.login-container{
+    min-width: 400px;
+    background: $white;
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    position: absolute;
+    // top: 50%;
+    left: 50%;
+    transform: translate(-50%,10%);
+    
+    &-heading{
+        text-align: center;
+        margin-bottom: 2rem;
+        font-family: $style-font;
+        font-size: 48px;
+    }
+
+    & input{
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-radius: 0px;
+        border-width: 2px;
+        padding-left: 2px;
+        
+    }
+
+    &__social{
+        padding-bottom:3rem;
+        &--heading{
+            padding: 1rem 0; 
+            text-align: center;
+        }
+        &--buttons{
+            display: flex;
+            justify-content: space-around;
+            & a{
+            }
+
+            & img{
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        &--submit{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--dark);
+            width: 100%;
+            text-align: center;
+            color: var(--light);
+            font-weight: 900;
+            letter-spacing: 1px;
+            font-size: 20px;
+            padding: 16px 0;
+            text-transform: uppercase;
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+    }
+}
+
+// ========================= About Couple Page ======================== //
+
+.about-main-container{
+    height: 100vh;
+}
+
+.about-card{
+    margin-top:8%;
+    position: relative;
+    
+    & .card{
+
+        &-img{
+            display: block;
+            max-height: 400px;
+        } 
+
+        & .card-img-overlay{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.8));
+            border-radius: 10px;
+    
+            & .card-title{
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+// ===================== Groom / Bride info Edit page =====================//
+
+.about-info-edit{
+    height: 100vh;
+
+    & .card-img-overlay{
+        top:auto;
+        left: auto;
+    }
+}
+
+//====================== Schedule
+
+.schedule{
+    height: 100vh;
+}
+
+//============= Story 
+.add-story{
+     position: relative;
+
+    &__container{
+    }
+}
+
+.view-story{
+
+    &__add-button{
+        background: $primary-color;
+
+        & a{
+            color: #fff;
+            transition: all 0.5s ease;
+            &:hover{
+                color: $secondary-color;
+            }
+        }
+    }
+}
+
+//============= Dashboard
+.dashboard{
+
+    &--linkname{
+        font-size: 14px;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
+//============= Photo Album
+.photo-album{
+    & .card{
+        // width: 250px;
+        // max-height: 250px;
+        display: block;
+
+        & img{
+            // max-height: 250px;
+            display: block;
+            cursor: pointer;
+        }
+        & .card-img-overlay{
+            cursor: pointer;
+            height: 30px;
+            width: 30px;
+            bottom: 0;
+            right: 0;
+            top: auto;
+            left: auto;
+            & a{
+                position: absolute;
+                bottom: 20px;
+                right: 20px;
+                height: 30px;
+                width: 30px;
+                background: #fff;
+                color: #000;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 100%;
+                -webkit-appearance: inherit !important;
+                transition: all 0.5s ease;
+                &:hover{
+                    box-shadow: 2px 5px 20px rgba(0,0,0,0.8);
+                }
+            }
+        }
+    }
+}
+
+
+
+.web-view{
+    overflow: hidden;
+    padding: 0.75rem;
+
+    & .preview-container{
+        margin-top:-24px;
+    }
+    &__buttons{
+        padding: 1rem 0;
+    }
+    &__container{
+        height: 80vh;
+        position: relative;
+        &--preview{
+            height: 80%;
+            & .web-preview{
+                position: relative;
+                display: flex;
+                // display: none;
+                height: 100%;
+                &--img{
+                    width: 540px;
+                    height: 100%;
+                }
+
+                & iframe{
+                    position: absolute;
+                    top: -76px;
+                    left: -450px;
+                    width: 1440px;
+                    height: 640px;
+                    transform: scale(0.374, 0.562);
+                }
+            }
+            & .mobile-preview{
+               
+                display: none;
+                &--img{
+                    height: calc(1334px * 0.35);
+                    width: calc(750px * 0.35);
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                & iframe{
+                    width: 414px;
+                    height: 753px;
+                    position: absolute;
+                    top: -149px;
+                    left: 75px;
+                    -webkit-transform: scale(0.284, 0.258);
+                    transform: scale(0.525, 0.456);
+                }
+            }
+
+            &-select{
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                &-ul{
+                    display: flex;
+                    // width: 100px;
+
+                    & li{
+                        padding: 10px 10px;
+                        display: flex;
+                        justify-content: center;
+                        list-style: none;
+                        width: 50%;
+                        cursor: pointer;
+                    }
+                }
+            }
+           
+        }
+    }
+
+    #mobile-preview{
+        border-left: 1px solid black;
+    }
+}
+
+#style-3::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+}
+
+#appended-text{
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    transition: all 0.5s ease-in;
+    z-index: 1;
+}
+
+
+.form-control .login{
+    // border-bottom: 2px solid; 
+}

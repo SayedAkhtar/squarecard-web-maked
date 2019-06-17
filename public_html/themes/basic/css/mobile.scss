@@ -1,0 +1,138 @@
+@media (max-width:500px){
+
+h1{
+    font-size:5rem !important; 
+}
+h2{
+    font-size: 2.8rem !important;
+}
+h3{
+    font-size: 2.2rem !important;
+}
+h4{
+    font-size: 1.7rem !important;
+}
+h5{
+    font-size: 1rem !important;
+}
+
+    .person-container{
+        padding: 1rem;
+        flex-direction: column;
+        &--1{
+            flex-direction: column-reverse;
+            justify-content: center;
+        }
+        &--image{
+            margin: 10px auto;
+        }
+    }
+
+    .mobile-menu{
+        display: block;
+        
+
+        &-open{
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .navigation-intro__navigation--links-container{
+        display: none;
+    }
+
+    .story-timeline{
+        &__container{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+
+            &--image{
+                
+            }
+
+            &--content{
+                display: block;
+                width: 100%;
+                text-align: center;
+                
+                &::before{
+                    display: none;
+                }
+            }
+        }
+    }
+    .story-timeline__container--content-first{
+        margin-bottom: 10px;
+            & .icon-image{
+                margin:0 auto;
+            }
+    }
+    .story-timeline__container-left .story-timeline__container--content{
+        flex-direction: unset;
+        text-align: center;
+
+        &::before{
+            left: 0px;
+        }
+    }
+    .story-timeline__container-left .story-timeline__container--content-first{
+        justify-content: flex-start;
+    }
+    .story-timeline__container-left{
+        flex-direction: column-reverse;
+    }
+    .story-timeline__container-left .story-timeline__container--image{
+        justify-content: flex-end;
+    }
+    .story-timeline__container--image{
+        width: auto;
+    }
+
+    .event-note__container{
+        max-width: 280px;
+        margin-left: 0px;
+        padding: 1.25rem 1rem;
+        margin: 0 auto;
+    }
+
+    .event-dates{
+        & h1 {
+            font-size: 3rem !important;
+        }
+        & h3{
+            font-size: 1.5rem !important;
+        }
+        & .story-timeline__container--content{
+            padding: 2.5rem 0rem;
+            margin: 0 auto;
+
+            &::before{
+                display: none;
+            }
+        }
+
+        & .venue{
+            margin-bottom: 0rem;
+        }
+    }
+
+    .gallery-container{
+        margin-top: 0px;
+        &__image{
+        margin-top: 10px;
+            & img{
+            min-height: auto;
+            }
+        }
+    }
+
+    .info__container{
+        flex-wrap: wrap;
+
+        &--content{
+            margin: 10px auto;
+        }
+    }
+}

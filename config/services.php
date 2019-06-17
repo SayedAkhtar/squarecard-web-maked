@@ -43,5 +43,16 @@ return [
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
     ],
+    'facebook' => [
+        'client_id' => "299496364277226",
+        'client_secret' => "a0a0e3d6624fd415dbcef269f8bc0dc1",
+        'redirect' => env('APP_URL').'/login/facebook/callback',
+    ],
+    'google' => [
+        'client_id' => "1054227832294-jj9gi4826hk9b3q7j4crv70e06crn8t3.apps.googleusercontent.com",
+        'client_secret' => "kaI-Q1qN9bQcD6BP5OBcDhHk",
+        // 'redirect' => 'http://127.0.0.1:8000/login/google/callback',
+        'redirect' => env('APP_URL').'/login/google/callback',
+    ],
 
 ];
