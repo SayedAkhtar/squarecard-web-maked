@@ -2,6 +2,7 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
+    
 
     RewriteEngine On
 
@@ -18,4 +19,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+    
+
+    # Handle all .JPG files
+    RewriteCond %{REQUEST_URI}\.JPG -f
+    RewriteRule ^(.*)\.JPG$ $1.jpg
 </IfModule>

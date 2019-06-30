@@ -18,10 +18,10 @@
                         </div>
                     <h3 class="dashboard--heading text-uppercase mt-4">Schedule |edit</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
             <div class="col-md-7">
@@ -29,42 +29,49 @@
                 <form class="" enctype="multipart/form-data" method="POST" action="{{url()->current()}}">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput" name="event_name" placeholder="Event Title"
+                        <label for="event-title" class="important-form-feild">Event Title</label>
+                        <input type="text" class="form-control" id="evet-title" name="event_name"
                         value="{{$data->event_name}}" required
                         >
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-6 p-0">
-                        <input type="text" class="form-control date" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" name="event_start_date"
+                        <label for="event-start-date" class="important-form-feild">Start Date</label>
+                        <input type="text" class="form-control date" id="event-start-date" name="event_start_date"
                         value="{{$data->event_start_data}}" required
                         >
                         </div>
                         <div class="col-6 p-0">
-                        <input type="time" class="form-control" id="formGroupExampleInput3" placeholder="DD/MM/YYYY" name="event_start_time"
+                        <label for="event-start-time" class="important-form-feild">Start Time</label>
+                        <input type="time" class="form-control" id="formGroupExampleInput3" name="event_start_time"
                         value="{{$data->event_start_time}}" required
                         >
                         </div>
                     </div>
                     <div class="form-group d-flex">
                         <div class="col-6 p-0">
-                        <input type="text" class="form-control date" id="formGroupExampleInput4" placeholder="DD/MM/YYYY" name="event_end_date"
+                        <label for="event-end-date">End Date</label>
+                        <input type="text" class="form-control date" id="event-end-date" name="event_end_date"
                         value="{{$data->event_end_date}}"
                         >
                         </div>
                         <div class="col-6 p-0">
-                        <input type="time" class="form-control" id="formGroupExampleInput5" placeholder="DD/MM/YYYY" name="event_end_time"
+                        <label for="event-end-time">Event Time</label>
+                        <input type="time" class="form-control" id="event-end-time" name="event_end_time"
                         value="{{$data->event_end_time}}"
                         >
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput6" placeholder="Place" name="event_venue"
-                        value="{{$data->event_venue}}" required
+                        <label for="evnt-venue">Event Venue</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput6" name="event_venue"
+                        value="{{$data->event_venue}}"
                         >
                     </div>
                     <div class="form-group">
+                        <label for="event-short-description">Short Description</label>
                         <small>MAX: 180 Characters</small>
-                        <textarea type="text" class="form-control" id="formGroupExampleInput7" placeholder="Event Short Description" rows="3" name="event_short_description" maxlength="180">{{$data->event_short_description}}</textarea>
+                        <textarea type="text" class="form-control" id="event-short-description" rows="3" name="event_short_description" maxlength="180">{{$data->event_short_description}}</textarea>
                     </div>
                     {{-- <div class="form-group">
                         <textarea type="text" class="form-control" id="formGroupExampleInput8" placeholder="Event Long Description" rows="5" name="event-long-description"></textarea>

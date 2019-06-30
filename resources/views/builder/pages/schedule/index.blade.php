@@ -17,10 +17,11 @@
                         </div>
                     <h3 class="dashboard--heading text-uppercase mt-4">Schedules</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="tbtn-share-web-url"> 
+                            Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
 
@@ -78,8 +79,10 @@
             </div>
             <a href="{{url()->current()}}/add" class="btn btn-submit text-capitalize mx-auto my-3 d-block w-3">Add</a>             
     </div>
+    </div>
     <div class="col-md-5 col-sm-12 web-view">
         @include('builder.pages.iframe')
+    </div>
     </div>
 </div>
 

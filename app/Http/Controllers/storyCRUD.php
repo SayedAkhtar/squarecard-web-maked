@@ -82,9 +82,10 @@ class storyCRUD extends Controller
     {
         //
         $user = Auth::user()->id;
+        $data = UserUrls::where("id", $user)->first();
         $story = Story::where('user_urls_id',$user)->where('id',$id)->first();
         // return $story;
-        return view("/builder/pages/story/edit-story",['story' => $story]);
+        return view("/builder/pages/story/edit-story",['story' => $story, 'user'=>$data]);
     }
 
     /**

@@ -18,10 +18,10 @@
                             </div>
                         <h3 class="dashboard--heading text-uppercase mt-4">About Couple | Edit</h3>
                         <div class="dashboard__head-buttons">
-                            <a href="#" class="btn btn-secondary">Share 
+                            <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                                 <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                             </a>
-                            <a href="#" class="btn btn-secondary">Help ?</a> 
+                            <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                         </div>
                     </div>
 
@@ -46,21 +46,25 @@
                     <form class="mt-5" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name"
-                            value="@if($name != null){{$name}}@endif" required>
+                            <label for="full-name" class="important-form-feild">Full Name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name"
+                            value="@if($name != null){{$name}}@endif" required id="full-name">
                         </div>
                         <div class="form-group">
-                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" name="date"
-                            value="@if($dob != null){{$dob}}@endif" required>
+                            <label for="couple-age">Age</label>
+                            <input type="text" class="form-control" id="couple-age" placeholder="" name="date"
+                            value="@if($dob != null){{$dob}}@endif">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Profession" name="profession"
+                            <label for="couple-prfession"></label>
+                            <input type="text" class="form-control" id="couple-profession" name="profession"
                             value="@if($profession != null){{$profession}}@endif">
                         </div>
                         <input type="file" name="image" id="imageInput" style="display:none" required>
                         <div class="form-group">
+                            <label for="couple-about"></label>
                             <small>MAX: 180 Characters</small>
-                            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="About" name="about" rows="5" maxlength="180">@if($about != null){{$about}}@endif</textarea>
+                            <textarea type="text" class="form-control" id="couple-about" placeholder="About" name="about" rows="5" maxlength="180">@if($about != null){{$about}}@endif</textarea>
                         </div>
                         <div class="form-group">
                                 @if ($errors->any())

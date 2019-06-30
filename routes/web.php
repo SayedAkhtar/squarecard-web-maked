@@ -11,6 +11,11 @@ use App\Http\Controllers\builderFrontend;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/share-modal', function (){
+    return view('/builder/pages/share-modal');
+});
+
 Auth::routes();
 
 Route::get('/builder', 'builderFrontend@login');
@@ -77,7 +82,7 @@ Route::post('/builder/dashboard/registry/edit/{id}', "registryCRUD@edit");
 Route::post('/builder/dashboard/registry/delete', "registryCRUD@destroy");
 
 
-
+ 
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToFacebookProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookProviderCallback');
@@ -86,7 +91,9 @@ Route::get('login/google/callback', 'Auth\LoginController@handleGoogleProviderCa
 
 
 
-// POST ROUTES
+// Route::post('squarecard.test/send-query', function(){
+//     return back()->with('success');
+// });
 
 
 

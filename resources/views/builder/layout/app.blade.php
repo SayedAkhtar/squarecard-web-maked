@@ -14,11 +14,20 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset("css/main.css")}}">
     <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
+    
+    <style>
+    
+  </style>
+    
 
+    
 </head>
 <body>
-
+    
     @yield('content')
+    @include('builder.pages.share-modal')
+    @include('builder.pages.help-modal')
+    @include('builder.layout.mobile-navigation')
     
 <!-- Script -->
 <script src="{{asset("js/jquery.min.js")}}"></script>
@@ -76,12 +85,8 @@ $( function() {
       $( ".date" ).datepicker();
 } );
 
-$('.form-control').each(function(e){
-    var ParentElement = $(this)[0].offsetParent;
-    var content = $(this)[0].placeholder;
-    if($(this)[0].type != 'file'){
-        $(ParentElement).append(`<small id='appended-text'>${content}</small>`)
-    }
+$('.important-form-feild').each(function(e){
+   $(this).append(`<small class="text-danger inportant-asterix">*</small>`);
 });
 
 $(".login.form-control").each(function(){
@@ -91,7 +96,39 @@ $(".signup.form-control").each(function(){
   this.nextElementSibling.remove();  
 });
 
+$(document).ready(function(){
+        //Modal Hide
+        $("#modal-help-close").click(function(){
+          $(".help-modal-background").fadeOut(200);
+        });
 
+        //Modal Show Up
+        $("#btn-help-modal").click(function(){
+          $(".help-modal-background").fadeIn(100);
+        });
+
+      //Modal show Up
+      $("#modal-share-close").click(function(){
+          $(".background").fadeOut(200);
+          $("#share-web-url > input").prop('disabled', false);
+          $("#share-web-url > small").css('opacity',0);
+        });
+
+        //Modal Hide
+        $("#btn-share-web-url").click(function(){
+          $(".background").fadeIn(100);
+        });
+
+        $("#share-web-url").click(function(){
+          
+          $("#share-web-url > input").select();
+          document.execCommand('copy');
+          $("#share-web-url > input").prop('disabled', true);
+          $("#share-web-url > small").css('opacity',1);
+          
+        });
+
+});
 
 </script>
 @yield('script')

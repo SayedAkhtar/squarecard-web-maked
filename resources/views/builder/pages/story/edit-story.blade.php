@@ -14,10 +14,10 @@
                         </div>
                     <h3 class="dashboard--heading text-uppercase mt-4">Stroy | Edit</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
             <div class="col-md-12">
@@ -36,16 +36,20 @@
                 <form class="" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="story_title" placeholder="Story Title" value="{{$story->story_title}}">
+                        <label for="story-title" class="important-form-feild">Story Title</label>
+                    <input type="text" class="form-control" id="story-title" name="story_title" value="{{$story->story_title}}" required>
                     </div>
                     <div class="form-group">
-                    <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" name="story_start_date" value="{{$story->date}}">
+                        <label for="story-start-date">Story Start Date</label>
+                    <input type="date" class="form-control" id="story-start-date" name="story_start_date" value="{{$story->date}}">
                     </div>
                     <div class="form-group">
-                    <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Place" name="story_place" value="{{$story->story_venue}}">
+                    <label for="story-place">Story Place</label>
+                    <input type="text" class="form-control" id="story-place"  name="story_place" value="{{$story->story_venue}}">
                     </div>
                     <div class="form-group">
-                    <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Describe Your Moment" name="about" rows="5">{{$story->story_short_description}}</textarea>
+                        <label for="story-momentd" class="important-form-feild">Story Description</label><small>MAX: 150 Characters.</small>
+                    <textarea type="text" class="form-control" id="story-moments" placeholder="Describe Your Moment" name="about" rows="5" required>{{$story->story_short_description}}</textarea>
                     </div>
                     <input type="file" name="image" id="imageInput" hidden>
                     <div class="d-flex justify-content-end">

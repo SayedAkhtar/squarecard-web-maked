@@ -17,10 +17,10 @@ $id = Auth::user()->id;
                     </div>
                 <h3 class="dashboard--heading text-uppercase mt-4">Dashboard</h3>
                 <div class="dashboard__head-buttons">
-                    <a href="#" class="btn btn-secondary">Share 
+                    <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                         <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                     </a>
-                    <a class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Under Development">Help ?</a> 
+                    <a class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                 </div>
             </div><!-- Head Button Ended -->
             <div class="dashboard-main mt-3">

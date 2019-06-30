@@ -12,7 +12,6 @@ function selectWebMobile(web, mobile){
     const webcontainer = $(".web-preview");
     const mobilecontainer = $(".mobile-preview");
     web.on('click', function(){
-        console.log("hi");
         mobilecontainer.hide();
         webcontainer.show();
     });

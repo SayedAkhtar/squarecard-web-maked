@@ -17,12 +17,12 @@ $length  = count($story);
                         <a href="{{env('APP_URL')}}/builder/dashboard"><img src="{{asset('img/home.png')}}" alt="" class="img-responsive" height="30px"></a>
                     </div>
                 </div>
-            <h3 class="dashboard--heading text-uppercase mt-4">Story</h3>
+            <h3 class="dashboard--heading text-uppercase mt-4" >Story</h3>
             <div class="dashboard__head-buttons">
-                <a href="#" class="btn btn-secondary">Share 
+                <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                     <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                 </a>
-                <a href="#" class="btn btn-secondary">Help ?</a> 
+                <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
             </div>
         </div>
                 <div class="row mt-5 mx-auto">

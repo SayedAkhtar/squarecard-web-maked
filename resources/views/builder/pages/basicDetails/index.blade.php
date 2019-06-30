@@ -27,37 +27,42 @@ $url = (substr(url()->current(),0, $pos));
                                 <a href="{{env('APP_URL')}}/builder/dashboard"><img src="{{asset('img/home.png')}}" alt="" class="img-responsive" height="30px"></a>
                             </div>
                         </div>
-                    <h3 class="dashboard--heading text-uppercase mt-4">basic Details</h3>
+                    <h3 class="dashboard--heading text-uppercase mt-4">Basic Details</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
             <div class="col-md-8">
                 <form class="" method="POST" action="{{url()->current()}}/edit" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
-                    <input type="text" class="form-control" id="formGroupExampleInput" name="event_name" placeholder="Event Name" value="{{$event}}">
+                    <label for="event-name" class="important-form-feild">Event Name</label>
+                    <input type="text" class="form-control" id="formGroupExampleInput" name="event_name" placeholder="Event Name" value="{{$event}}" required>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="groom_name" placeholder="Groom Name" value="{{$groom}}">
+                            <label for="groom-name" class="important-form-feild">Groom Name</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="groom_name" placeholder="Groom Name" value="{{$groom}}" id="groom-name" required>
                             </div>
                         </div>
                          <div class="col-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="formGroupExampleInput" name="bride_name" placeholder="Bride Name" value="{{$bride}}">
+                                <label for="bride-name" class="important-form-feild">Bride Name</label>
+                                <input type="text" class="form-control" id="formGroupExampleInput" name="bride_name" placeholder="Bride Name" value="{{$bride}}" id="bride-name" require>
                             </div>
                         </div>      
                     </div>
                     <div class="form-group">
-                    <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" pattern="dd-mm-yyyy" name="event_date" value="{{$date}}">
+                    <label for="event-date" class="important-form-feild">Event Date</label>
+                    <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" pattern="dd-mm-yyyy" name="event_date" value="{{$date}}" id="event-date" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Event Venue" name="event_venue" value="{{$venue}}">
+                        <label for="event-venue">Event Venue</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Event Venue" name="event_venue" value="{{$venue}}" id="event-venue">
                     </div>
                     <div class="form-group">
                     <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Describe Your Event" name="event_about" rows="5">{{$details->about}}</textarea>

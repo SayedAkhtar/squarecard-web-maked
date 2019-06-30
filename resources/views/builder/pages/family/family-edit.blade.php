@@ -13,10 +13,10 @@
                         </div>
                     <h3 class="dashboard--heading text-uppercase mt-4">About Couple | Edit</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
 
@@ -40,28 +40,39 @@
                     <form class="mt-5" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name" 
+                            <label for="family-full-name">Full Name</label>
+                            <input type="text" class="form-control" id="family-full-name" name="full_name" 
                             value="{{$data->name}}"
+                            required
                             >
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Age" name="date" value="{{$data->age}}">
+                            <label for="family-age">Age</label>
+                            <input type="text" class="form-control" id="family-age" placeholder="Age" name="date" value="{{$data->age}}">
                         </div>
+
                         <div class="form-group">
-                        <select type="text" class="form-control" id="formGroupExampleInput3" placeholder="Maritial Status" name="maritial_status" value="{{$data->maritial_status}}">
-                                <option value="single">Single</option>
+                            <label for="relationship-status">Maritial Status</label>
+                        <select type="text" class="form-control" id="relationship-status" name="maritial_status" value="{{$data->maritial_status}}">
+                                <option value="single" selected>Single</option>
                                 <option value="Married">Married</option>
                             </select>
                         </div>
+
                         <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Profession" name="profession" value="{{$data->profession}}">
+                            <label for="family-profession">Profession</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput4" name="profession" value="{{$data->profession}}">
                         </div>
+
                         <div class="form-group">
-                        <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="Relation" name="relation" value="{{$data->relation_name}}">
-                        <input type="text" class="form-control" name="bride_groom" value="{{$data->bride_groom}}" hidden>
+                            <label for="family-relation">Relation</label>
+                        <input type="text" class="form-control" id="family-relation" name="relation" value="{{$data->relation_name}}" required>
+
+                        <input type="text" class="form-control" name="bride_groom" value="{{$data->bride_groom}}" hidden>{{-- states the related to feild--}}
                         </div>
-                        <div class="form-group">
-                        <textarea type="text" class="form-control" id="formGroupExampleInput6" placeholder="About" name="about" rows="5">{{$data->about}}</textarea>
+                        <div class="form-group">]label
+                <label for="friends-faily-">About</label>
+                        <textarea type="text" class="form-control" id="formGroupExampleInput6" name="about" rows="5">{{$data->about}}</textarea>
                         <input type="file" name="image" id="imageInput" style="display:none">
                         </div>
                         <div class="form-group">

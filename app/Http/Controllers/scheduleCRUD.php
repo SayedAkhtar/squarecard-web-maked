@@ -79,7 +79,7 @@ class scheduleCRUD extends Controller
         $user =  Auth::user()->id;
         $url = UserUrls::where('user_id', $user)->first();
         return view("/builder/pages/schedule/add-schedule",['user'=>$url]);
-    }
+    } 
 
     /**
      * Display the specified resource.
@@ -91,7 +91,9 @@ class scheduleCRUD extends Controller
     {
         //
         $schedule = Schedule::findOrFail($id);
-        return view('/builder/pages/schedule/edit-schedule', ['data' => $schedule]);
+        $user =  Auth::user()->id;
+        $url = UserUrls::where('user_id', $user)->first();
+        return view('/builder/pages/schedule/edit-schedule', ['data' => $schedule, 'user'=> $url]);
     }
 
     /**

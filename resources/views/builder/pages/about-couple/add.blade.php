@@ -13,10 +13,10 @@
                         </div>
                     <h3 class="dashboard--heading text-uppercase mt-4">About Couple | Add</h3>
                     <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary">Share 
+                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
                         </a>
-                        <a href="#" class="btn btn-secondary">Help ?</a> 
+                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                     </div>
                 </div>
 
@@ -40,17 +40,21 @@
                     <form class="mt-5" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name" required>
+                            <label for="couple-full-name">Full Name</label>
+                            <input type="text" class="form-control" id="couple-full-name" name="full_name" required>
                         </div>
                         <div class="form-group">
-                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" name="date" required>
+                            <label for="couple-date">Age</label>
+                            <input type="tex" class="form-control" id="couple-date" name="date">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Profession" name="profession" required>
+                            <label for="couple-profession">Profession</label>
+                            <input type="text" class="form-control" id="profession" name="profession">
                         </div>
                         <div class="form-group">
+                            <label for="couple-about">About</label>
                             <small>MAX: 180 Characters</small>
-                            <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="About" name="about" rows="5" maxlength="180"></textarea>
+                            <textarea type="text" class="form-control" id="couple-about" placeholder="About" name="about" rows="5" maxlength="180"></textarea>
                         </div>
                         <div class="form-group">
                                 @if ($errors->any())
