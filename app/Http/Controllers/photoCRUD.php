@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use App\PhotoAlbum;
 use App\Photo;
+use App\UserUrls;
 
 class photoCRUD extends Controller
 {
@@ -22,11 +23,12 @@ class photoCRUD extends Controller
     public function index()
     {
         //
-        $user = Auth::user()->id;
+        $userID = Auth::user()->id;
+        $user = UserUrls::find($userID);
         // $data = PhotoAlbum::where('user_urls_id', $user)->get();
-        $data = Photo::where('user_urls_id', $user)->get();
+        $data = Photo::where('user_urls_id', $userID)->get();
         // return $data;
-        return view("builder/pages/photo/photo-list", ["data" => $data,]);
+        return view("builder/pages/photo/photo-list", ["data" => $data, "user" =>$user]);
     }
 
     /**

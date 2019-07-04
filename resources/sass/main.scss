@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Karla:400,400i,700,700i');
-
 $style-font: 'Abril Fatface', cursive;
 $primary-font: 'Karla', sans-serif;
 
 $primary-color: #FAA38C;
 $secondary-color: #FFF1ED;
 $white: #fff;
+
+@import './css-spinner';
+@import './floating-button';
+
 html{
     overflow-x:hidden; 
 }
@@ -39,6 +42,12 @@ input[type=date]::-webkit-inner-spin-button,
 input[type=date]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
   margin: 0; 
+}
+a{
+    color: inherit;
+    &:hover{
+        color: inherit;
+    }
 }
 [type=button]{
     -webkit-appearance: inherit;
@@ -291,12 +300,13 @@ a:active{
 //============= Photo Album
 .photo-album{
     & .card{
-        // width: 250px;
-        // max-height: 250px;
+        height: 255px;
         display: block;
+        margin-top: 10px;
 
         & img{
             // max-height: 250px;
+            height: 100%;
             display: block;
             cursor: pointer;
         }
@@ -545,5 +555,28 @@ a:active{
   }
 
   .mobile-navigation{
+      display: none;
+  }
+
+  #mobile-in-landscape{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      background: #ced4da;
+
+      & .in-center{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;  
+      }
+    display: none;
+  }
+
+  .mobile-heading-menu--container{
       display: none;
   }

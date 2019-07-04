@@ -16,18 +16,29 @@
     <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
     
     <style>
-    
   </style>
     
 
     
 </head>
 <body>
-    
+  <div id="before-loader">
+    <div class="loader">Loading...</div>
+  </div>
+
     @yield('content')
     @include('builder.pages.share-modal')
     @include('builder.pages.help-modal')
-    @include('builder.layout.mobile-navigation')
+    @include('builder.layout.floating-share')
+
+
+    <div id="mobile-in-landscape">
+      <div class="in-center">
+        <h2 class="text-center">Please rotate your device.</h2>
+        <h1 class="mt-2"><i class="fas fa-sync-alt"></i></h1>
+      </div>
+
+    </div>
     
 <!-- Script -->
 <script src="{{asset("js/jquery.min.js")}}"></script>
@@ -36,7 +47,9 @@
 <script src="{{asset("js/bootstrap.min.js")}}"></script>
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>
 <script src="{{asset("js/dashboardScript.js")}}"></script>
-
+<script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
+<script src="{{asset("js/menu.min.js")}}"></script>
+<script>$('[data-menu]').menu();</script><script>$('[data-menu]').menu();</script>
 <script>
 
 $('.owl-carousel').owlCarousel({
@@ -58,10 +71,11 @@ $('.owl-carousel').owlCarousel({
 })
 
 $(document).ready(function(){
+    $('#before-loader').fadeOut(100);
     $("#imageInputBtn").click(function(){
         $("#imageInput").trigger("click");
     });
-    // $('[data-toggle=tooltip]').tooltip('show');
+
 });
 
 function readURL(input) {
@@ -80,10 +94,6 @@ if (input.files && input.files[0]) {
 $("#imageInput").change(function() {
 readURL(this);
 });
-
-$( function() {
-      $( ".date" ).datepicker();
-} );
 
 $('.important-form-feild').each(function(e){
    $(this).append(`<small class="text-danger inportant-asterix">*</small>`);
@@ -127,6 +137,34 @@ $(document).ready(function(){
           $("#share-web-url > small").css('opacity',1);
           
         });
+
+      $( window ).on( "orientationchange", function( event ) {
+        if(event.orientation == 'landscape'){
+          $('#mobile-in-landscape').css('display','flex');
+        }
+        else{
+          $('#mobile-in-landscape').css('display','none');
+        }
+      });
+      var width = $(window).width();
+      var height = $(window).height();
+      if((height < 400 ) && (width > height)){
+        $('#mobile-in-landscape').css('display','flex');
+      }
+
+      $('.share-clickable-button').click(function(){
+          if($(this).hasClass('active')){
+              $('#share-1').css('transform','translateY(0px)');
+              $('#share-2').css('transform','translateY(0px)');
+          }else{
+              $('#share-1').css('transform','translateY(-50px)');
+              $('#share-2').css('transform','translateY(-100px)');
+          }
+          $(this).toggleClass('active');
+      });
+      $('#mobile-heading-menu').click(function(){
+        $(".mobile-heading-menu--container").toggle();
+      })
 
 });
 

@@ -64,7 +64,7 @@
 
                         </div>
                         <h6 class="card-text mt-3 pb-3">{{$data->event_short_description}}</h6>
-                        <div style="position: absolute; bottom: 0;" >
+                        <div style="position: absolute; bottom: 5px;" >
                         <a href="{{url()->current()}}/edit/{{$data->id}}" class="btn btn-submit text-capitalize mx-0">change</a>
                         <form action="{{url()->current()}}/delete/{{$data->id}}" method="post" class="d-inline">
                             @csrf

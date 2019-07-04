@@ -12,7 +12,7 @@
                                 <a href="{{env('APP_URL')}}/builder/dashboard"><img src="{{asset('img/home.png')}}" alt="" class="img-responsive" height="30px"></a>
                             </div>
                         </div>
-                    <h3 class="dashboard--heading text-uppercase mt-4">Stroy | Edit</h3>
+                    <h3 class="dashboard--heading text-uppercase mt-4">Story | Edit</h3>
                     <div class="dashboard__head-buttons">
                         <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
                             <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
@@ -23,7 +23,7 @@
             <div class="col-md-12">
                     <div class="row">
                     <div class="col-md-5 col-sm-12">
-                            <h5 class="mb-2">Groom</h5>
+                            
                             <div class="card bg-dark text-white" id="imageInputBtn" style="cursor:pointer">
                                 <img src="@if($story->story_image !=null || $story->story_image !=''){{asset("images/".$story->story_image)}}@else{{asset("img/capture.png")}}@endif" class="card-img" alt="..." id="userImage">
                                 <div class="card-img-overlay">

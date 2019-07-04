@@ -8,10 +8,11 @@ $id = Auth::user()->id;
     
     <div class="col-md-7 col-sm-12 main-container dashboard">
         <div class="container-fluid">
-            <div class="d-flex align-items-center justify-content-sm-between">
+
+            {{-- <div class="d-flex align-items-center justify-content-sm-between dashboard-heading">
                     <div class="action__button">
                         <div class="action__button--left">
-                            {{-- <a href="#"><img src="{{asset('img/back.png')}}" alt="" class="img-responsive" height="30px"></a> --}}
+                            {{-- <a href="#"><img src="{{asset('img/back.png')}}" alt="" class="img-responsive" height="30px"></a> --
                             <a href="{{env('APP_URL')}}/builder/dashboard"><img src="{{asset('img/home.png')}}" alt="" class="img-responsive" height="30px"></a>
                         </div>
                     </div>
@@ -22,7 +23,11 @@ $id = Auth::user()->id;
                     </a>
                     <a class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
                 </div>
-            </div><!-- Head Button Ended -->
+            </div> --}}
+            {{-- Headinh Button --}}
+            @include('builder.layout.dashboard-heading-mobile')
+
+            <!-- Head Button Ended -->
             <div class="dashboard-main mt-3">
                 <div class="dashboard_website-design">
                     <h6 class="text-uppercase">Website Design</h6>

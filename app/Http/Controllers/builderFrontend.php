@@ -16,16 +16,16 @@ use Illuminate\Support\Arr;
 class builderFrontend extends Controller
 {
 
-    function login(){
+    public function login(){
         return view('/builder/pages/login');
     }
-    function signup(){
+    public function signup(){
         return view('/builder/pages/signup');
     }
-    function signupInformation(){
+    public function signupInformation(){
         return view('/builder/pages/basic-required');
     }
-    function createUser(Request $request){
+    public function createUser(Request $request){
         $url = new UserUrls();
         $basic = new BasicDetails();
         $about = new About();
@@ -48,7 +48,7 @@ class builderFrontend extends Controller
         $user = UserUrls::where('user_id',$id)->first();
         return redirect()->route('dashboard',[$user])->with(['user' => $user]);
     }
-    function checkUserUrl(Request $request){
+    public function checkUserUrl(Request $request){
         $array = [];
         $name = explode(' ',$request->groom_name)[0]." weds ".explode(' ',$request->bride_name)[0];
         $rndname = explode(' ',$request->groom_name)[0]." weds ".explode(' ',$request->bride_name)[0]." ".rand(1,9);
@@ -91,16 +91,25 @@ class builderFrontend extends Controller
         return $array ;
     }
 
-    function showDashboard(){
+    public function showDashboard(){
+        if(Auth::user()){
         $id = Auth::user()->id;
         $user = UserUrls::where('user_id',$id)->first();
         return view('/builder/pages/dashboard', ['user' => $user]);
+        }
+        else{
+            return redirect(route('login'));
+        }
     }
 
-    function listTemplates(){
+    public function listTemplates(){
         $data = Template::all();
         $id = Auth::user()->id;
         $user = UserUrls::where('user_id',$id)->first();
         return view('/builder/pages/templates/index',['data' => $data,'user' => $user]);
+    }
+
+    public function sendquer(Request $request){
+        return $request;
     }
 }

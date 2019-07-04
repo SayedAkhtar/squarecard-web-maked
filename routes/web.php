@@ -91,9 +91,7 @@ Route::get('login/google/callback', 'Auth\LoginController@handleGoogleProviderCa
 
 
 
-// Route::post('squarecard.test/send-query', function(){
-//     return back()->with('success');
-// });
+Route::post('squarecard.test/send-query', 'builderFrontend@sendquery');
 
 
 
