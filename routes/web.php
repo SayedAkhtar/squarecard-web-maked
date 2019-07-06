@@ -12,9 +12,12 @@ use App\Http\Controllers\builderFrontend;
 |
 */
 
-// Route::get('/share-modal', function (){
-//     return view('/builder/pages/share-modal');
-// });
+Route::get('/privacy-policy', function (){
+    return view('/landing-page/privacy-policy');
+});
+Route::get('/terms-and-conditions', function (){
+    return view('/landing-page/terms-and-conditions');
+});
 
 Auth::routes();
 // Route::get('/login',function(){
