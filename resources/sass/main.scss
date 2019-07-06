@@ -93,7 +93,7 @@ a:active{
 .btn-submit{
     border-radius: 100px;
     background: $primary-color;
-    margin: 0px 4px;
+    margin: 0px 4px 5px 4px;
 }
 .btn-cancel, .btn-secondary{
     border-radius: 100px;
@@ -110,6 +110,7 @@ a:active{
     &:hover{
         background: #fff;
     }
+ 
 
     &:not(:last-child){
         margin-right: 32px;
@@ -117,6 +118,9 @@ a:active{
     & img{
         height: 32px;
     }
+}
+.action__button--left > a:not(:last-child) {
+    margin-right: 20px;
 }
 .no-link-style{
     color: inherit;
@@ -580,3 +584,18 @@ a:active{
   .mobile-heading-menu--container{
       display: none;
   }
+  .dashboard-heading{
+    &-mobile{
+        display: none;
+    }
+    &-pc{
+        display: flex;
+    }
+}
+
+.share-clickable-button{
+    display: none;
+}
+.share-buttons-container{
+    display: none;
+}

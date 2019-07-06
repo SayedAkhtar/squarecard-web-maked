@@ -31,7 +31,9 @@ class registryCRUD extends Controller
     public function add()
     {
         //
-        return view('builder/pages/registry/add');
+        $id = Auth::user()->id;
+        $url = UserUrls::where('user_id', $id)->first();
+        return view('builder/pages/registry/add', ['user'=> $url]);
     }
 
     /**
@@ -50,7 +52,7 @@ class registryCRUD extends Controller
         $data->register_url =$request->register_url;
         if($request->has('image')){
             $this->validate($request, [
-                'image' => 'image|mimes:jpeg,png,svg,jpg,gif|max: 5048',
+                'image' => 'image|mimes:jpeg,png,svg,jpg,gif|max:5120',
             ]);
             $img = $request->file('image');
             $file = $img->getClientOriginalName();

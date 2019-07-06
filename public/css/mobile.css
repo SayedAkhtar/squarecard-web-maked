@@ -13,6 +13,7 @@
 
   .login-container__social--submit {
     border-radius: 0;
+    padding: 8px 0;
   }
 
   .btn-dashboard {
@@ -25,6 +26,24 @@
 
   .dashboard--heading {
     margin: 0 auto;
+  }
+
+  .dashboard-heading-mobile {
+    display: -webkit-box;
+    display: flex;
+  }
+
+  .dashboard-heading-pc {
+    display: none;
+  }
+
+  .share-clickable-button {
+    display: block;
+    background-color: inherit;
+  }
+
+  .share-buttons-container {
+    display: block;
   }
 
   .share-modal {

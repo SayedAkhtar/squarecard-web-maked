@@ -1,6 +1,21 @@
-@extends('builder.layout.app')
-@section('content')
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="FmNAJu0Pzpo23knxFSZV6uD35zU3Pjmlahn5v2amqzE" />
+    <title>Squarecaard- Login/Sign Up</title>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/jquery-ui.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/owl.carousel.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/owl.theme.default.min.css")}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset("css/main.css")}}">
+    <link rel="stylesheet" href="{{asset("css/mobile.css")}}">    
+</head>
+<body>    
     <div class="login-container">
         <h1 class="login-container-heading">One more step ...</h1>
         <form action="{{url()->current()}}" method="POST">
@@ -40,35 +55,37 @@
         </form>
     </div>
 
-@endsection
-@section('script')
-    <script>
-        $(document).ready(function(){
-            var url = `{{env('APP_URL')}}/builder/information/checkurl`;
-            var x,y;
-           $("#groom-name").on('keyup', function(e){
-              x = $(this)[0].value;
-           })
-           $("#bride-name").on('keyup', function(e){
-              y = $(this)[0].value;
-           })
-           $("#option").click(function(){           
-            $.ajax({
-                headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                        'Access-Control-Allow-Origin': '*' 
-                    },
-                data: { groom_name: x, bride_name: y}, 
-                url: url,
-                method: 'post',
-                success: function(data){
-                    data.forEach(element => {
-                        $( "#option" ).append( `<option value="${element}">${element}</option>" `);
-                        // console.log(element);
-                    });
-                }
-            });
-            });
+<script src="{{asset("js/jquery.min.js")}}"></script>
+<script src="{{asset("js/bootstrap.min.js")}}"></script>
+<script src="{{asset("js/dashboardScript.js")}}"></script>
+<script>
+    $(document).ready(function(){
+        var url = `/builder/information/checkurl`;
+        var x,y;
+        $("#groom-name").on('keyup', function(e){
+            x = $(this)[0].value;
+        })
+        $("#bride-name").on('keyup', function(e){
+            y = $(this)[0].value;
+        })
+        $("#option").click(function(){           
+        $.ajax({
+            headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Access-Control-Allow-Origin': '*' 
+                },
+            data: { groom_name: x, bride_name: y}, 
+            url: url,
+            method: 'post',
+            success: function(data){
+                data.forEach(element => {
+                    $( "#option" ).append( `<option value="${element}">${element}</option>" `);
+                    // console.log(element);
+                });
+            }
         });
-    </script>
-@endsection
+        });
+    });
+</script>
+</body>
+</html>

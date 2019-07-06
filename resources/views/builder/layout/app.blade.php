@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="FmNAJu0Pzpo23knxFSZV6uD35zU3Pjmlahn5v2amqzE" />
-    <title>Squarecaard- Login/Sign Up</title>
+    <title>Squarecaard @yield('title')</title>
     <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/jquery-ui.min.css")}}">
     <link rel="stylesheet" href="{{asset("css/owl.carousel.min.css")}}">
@@ -47,9 +47,8 @@
 <script src="{{asset("js/bootstrap.min.js")}}"></script>
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>
 <script src="{{asset("js/dashboardScript.js")}}"></script>
-<script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
-<script src="{{asset("js/menu.min.js")}}"></script>
-<script>$('[data-menu]').menu();</script><script>$('[data-menu]').menu();</script>
+{{-- <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script> --}}
+
 <script>
 
 $('.owl-carousel').owlCarousel({
@@ -107,6 +106,7 @@ $(".signup.form-control").each(function(){
 });
 
 $(document).ready(function(){
+        $('.ui-loader').hide();
         //Modal Hide
         $("#modal-help-close").click(function(){
           $(".help-modal-background").fadeOut(200);
@@ -156,9 +156,11 @@ $(document).ready(function(){
           if($(this).hasClass('active')){
               $('#share-1').css('transform','translateY(0px)');
               $('#share-2').css('transform','translateY(0px)');
+              $('#share-3').css('transform','translateY(0px)');
           }else{
               $('#share-1').css('transform','translateY(-50px)');
               $('#share-2').css('transform','translateY(-100px)');
+              $('#share-3').css('transform','translateY(-150px)');
           }
           $(this).toggleClass('active');
       });
@@ -169,6 +171,7 @@ $(document).ready(function(){
 });
 
 </script>
+
 @yield('script')
 </body>
 </html>

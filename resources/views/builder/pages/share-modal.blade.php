@@ -31,14 +31,7 @@
       </div>
     </div>
   </div>
-</div>
-@section('script')
-    <script>
-      $(document).ready(function(){
+</div>    
 
-        
-    </script>
-    
-@endsection
 
 

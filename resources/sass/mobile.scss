@@ -18,6 +18,7 @@
 
             &--submit{
                 border-radius: 0;
+                padding: 8px 0;
             }
         }
     }
@@ -31,7 +32,21 @@
     .dashboard--heading{
         margin:0 auto;
     }
-
+    .dashboard-heading{
+        &-mobile{
+            display: flex;
+        }
+        &-pc{
+            display: none;
+        }
+    }
+    .share-clickable-button{
+        display: block;
+        background-color: inherit; 
+    }
+    .share-buttons-container{
+        display: block;
+    }
     .share-modal{
         width: 100%;
         padding: 10px;

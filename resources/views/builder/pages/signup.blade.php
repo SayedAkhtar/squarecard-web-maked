@@ -1,6 +1,27 @@
-@extends('builder.layout.app')
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="FmNAJu0Pzpo23knxFSZV6uD35zU3Pjmlahn5v2amqzE" />
+    <title>Squarecaard- Login/Sign Up</title>
+    <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/jquery-ui.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/owl.carousel.min.css")}}">
+    <link rel="stylesheet" href="{{asset("css/owl.theme.default.min.css")}}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{asset("css/main.css")}}">
+    <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
     
+    <style>
+  </style>
+    
+
+    
+</head>
+<body>
     <div class="login-container">
         <h1 class="login-container-heading">sign up</h1>
         <form method="POST" action="{{ route('register') }}">
@@ -61,5 +82,5 @@
             <button type="submit" class="btn login-container__social--submit">Continue</button>
         </form>
     </div>
-
-@endsection
+</body>
+</html>

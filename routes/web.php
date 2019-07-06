@@ -12,18 +12,20 @@ use App\Http\Controllers\builderFrontend;
 |
 */
 
-Route::get('/share-modal', function (){
-    return view('/builder/pages/share-modal');
-});
+// Route::get('/share-modal', function (){
+//     return view('/builder/pages/share-modal');
+// });
 
 Auth::routes();
-
-Route::get('/builder', 'builderFrontend@login');
+// Route::get('/login',function(){
+//    return redirect('/builder'); 
+// });
+Route::get('/builder', 'builderFrontend@login')->name('/builder');
 Route::get('/builder/signup', 'builderFrontend@signup');
 Route::get('/builder/information', 'builderFrontend@signupInformation');
 Route::post('/builder/information', 'builderFrontend@createUser');
 Route::post('/builder/information/checkurl', 'builderFrontend@checkUserUrl');
-Route::get('/builder/dashboard', 'builderFrontend@showDashboard')->name('dashboard');
+Route::get('/builder/dashboard', 'builderFrontend@showDashboard');
 
 Route::get('/builder/dashboard/template-edit', 'builderFrontend@listTemplates')->name('templates');
 
@@ -81,7 +83,8 @@ Route::post('/builder/dashboard/registry/add', "registryCRUD@create");
 Route::post('/builder/dashboard/registry/edit/{id}', "registryCRUD@edit");
 Route::post('/builder/dashboard/registry/delete', "registryCRUD@destroy");
 
-
+// Help Modal Feild
+Route::post('builder/dashboard/send-query', 'HomeController@send-query');
  
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToFacebookProvider');
@@ -91,7 +94,7 @@ Route::get('login/google/callback', 'Auth\LoginController@handleGoogleProviderCa
 
 
 
-Route::post('squarecard.test/send-query', 'builderFrontend@sendquery');
+Route::post('send-query', 'builderFrontend@sendquery');
 
 
 

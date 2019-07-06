@@ -9,21 +9,8 @@
     <div class="col-md-7 col-sm-12 main-container add-story">
         <!-- <h5 class="mb-2">Bride</h5> -->
         <div class="container add-story__container">
-                <div class="d-flex align-items-center justify-content-sm-between mb-3">
-                        <div class="action__button">
-                            <div class="action__button--left">
-                                <a href="{{env('APP_URL')}}/builder/dashboard/schedule" class="mr-3"><img src="{{asset('img/back.png')}}" alt="" class="img-responsive" height="30px"></a>
-                                <a href="{{env('APP_URL')}}/builder/dashboard"><img src="{{asset('img/home.png')}}" alt="" class="img-responsive" height="30px"></a>
-                            </div>
-                        </div>
-                    <h3 class="dashboard--heading text-uppercase mt-4">Schedule | Add</h3>
-                    <div class="dashboard__head-buttons">
-                        <a href="#" class="btn btn-secondary" id="btn-share-web-url">Share 
-                            <img src="{{asset("img/share.png")}}" alt="" class="img-responsive" height="16px">
-                        </a>
-                        <a href="#" class="btn btn-secondary" id="btn-help-modal">Help ?</a> 
-                    </div>
-                </div>
+                @include('builder.layout.dashboard-heading-pc',['title'=>'Schedule | Add', 'back'=> '/builder/dashboard/schedule/'])
+                @include('builder.layout.dashboard-heading-mobile',['title'=>'Echedule | Add', 'back'=> '/builder/dashboard/schedule/'])
             <div class="col-md-7">
                 <form class="" enctype="multipart/form-data" method="POST" action="{{url()->current()}}">
                     @csrf

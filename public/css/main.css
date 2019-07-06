@@ -10,7 +10,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 100001;
   background: #FAA38C;
 }
 
@@ -79,11 +79,11 @@
 
 .share-clickable-button {
   position: fixed;
-  bottom: 19px;
-  right: 19px;
-  width: 42px;
-  height: 42px;
-  background: #12ffff;
+  bottom: 14px;
+  right: 16px;
+  width: 50px;
+  height: 50px;
+  background: #fff;
   border-radius: 100%;
   padding: 5px;
   cursor: pointer;
@@ -116,7 +116,7 @@
   right: 20px;
   width: 40px;
   height: 40px;
-  background: #12ffff;
+  background: #FAA38C;
   border-radius: 100%;
   cursor: pointer;
   z-index: 98;
@@ -234,7 +234,7 @@ a:active {
 .btn-submit {
   border-radius: 100px;
   background: #FAA38C;
-  margin: 0px 4px;
+  margin: 0px 4px 5px 4px;
 }
 
 .btn-cancel,
@@ -261,6 +261,10 @@ a:active {
 
 .btn-dashboard img {
   height: 32px;
+}
+
+.action__button--left > a:not(:last-child) {
+  margin-right: 20px;
 }
 
 .no-link-style {
@@ -729,6 +733,23 @@ a:active {
 }
 
 .mobile-heading-menu--container {
+  display: none;
+}
+
+.dashboard-heading-mobile {
+  display: none;
+}
+
+.dashboard-heading-pc {
+  display: -webkit-box;
+  display: flex;
+}
+
+.share-clickable-button {
+  display: none;
+}
+
+.share-buttons-container {
   display: none;
 }
 

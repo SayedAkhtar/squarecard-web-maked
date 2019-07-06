@@ -56,4 +56,7 @@ class HomeController extends Controller
     public function land(){
         return view('landing-page/index');
     }
+    public function sendquery(){
+        return success();
+    }
 }

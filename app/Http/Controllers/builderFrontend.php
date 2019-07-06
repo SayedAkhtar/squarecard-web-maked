@@ -95,10 +95,10 @@ class builderFrontend extends Controller
         if(Auth::user()){
         $id = Auth::user()->id;
         $user = UserUrls::where('user_id',$id)->first();
-        return view('/builder/pages/dashboard', ['user' => $user]);
+            return view('/builder/pages/dashboard', ['user' => $user]);
         }
         else{
-            return redirect(route('login'));
+            return redirect (route('/builder'));
         }
     }
 
@@ -109,7 +109,7 @@ class builderFrontend extends Controller
         return view('/builder/pages/templates/index',['data' => $data,'user' => $user]);
     }
 
-    public function sendquer(Request $request){
-        return $request;
+    public function sendquery(Request $request){
+        return back()->with('success', "Message submitted");
     }
 }
