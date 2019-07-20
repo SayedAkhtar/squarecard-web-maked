@@ -10,7 +10,7 @@
     <div class="col-md-7 col-sm-12 main-container about-info-edit">
         <div class="container-fluid">
                 @include('builder.layout.dashboard-heading-pc',['title'=>'About | Add', 'back'=> '/builder/dashboard/about'])
-                @include('builder.layout.dashboard-heading-mobile',['title'=>'About | Add', 'back'=> '/builder/dashboard/about'])
+                @include('builder.layout.dashboard-heading-mobile',['title'=>'About | Add', 'back'=> '/builder/dashboard/about', ])
 
             <!-- Card Container -->
             <div class="row about-info-edit-card">

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Support\Str;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailer;
+use App\Mail\QueryMail;
 
 class builderFrontend extends Controller
 {
@@ -94,7 +97,8 @@ class builderFrontend extends Controller
     public function showDashboard(){
         if(Auth::user()){
         $id = Auth::user()->id;
-        $user = UserUrls::where('user_id',$id)->first();
+        $user = UserUrls::where('user_id',2)->first();
+        // dd($user);
             return view('/builder/pages/dashboard', ['user' => $user]);
         }
         else{
@@ -109,7 +113,14 @@ class builderFrontend extends Controller
         return view('/builder/pages/templates/index',['data' => $data,'user' => $user]);
     }
 
-    public function sendquery(Request $request){
+    public function sendquery(Request $request, \Illuminate\Mail\Mailer $mailer){
+        $name = $request->input('query-name');
+        $email = $request->input('query-email');
+        $mobile = $request->input('query-mobile');
+        $query = $request->input('query-msg');
+
+        
+        $mailer->to('sayed182@gmail.com')->send(new QueryMail($name, $email, $mobile, $query));
         return back()->with('success', "Message submitted");
     }
 }

@@ -9,8 +9,8 @@
     <div class="dashboard__head-buttons " style="position:relative;" id="mobile-heading-menu">
         <a href="javascript:void(0)"><i class="fas fa-ellipsis-v"></i></a>
         <ul class="mobile-heading-menu--container">
-            <li><a href="#">Visit Website</a></li>
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="{{env('APP_URL')}}/{{App\User::find(Auth::user()->id)->UserUrl->UserURL}}" target="_blank">Visit Website</a></li>
+            <li onclick="$('.help-modal-background').fadeIn(100);"><a href="#">Contact Us</a></li>
         </ul>
     </div>
 </div>

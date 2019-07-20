@@ -11,7 +11,7 @@ $id = Auth::user()->id;
         <div class="container-fluid">
             {{-- Heading Button --}}
             @include('builder.layout.dashboard-heading-pc', ['title'=>'Dashboard'])
-            @include('builder.layout.dashboard-heading-mobile', ['title'=>'Dashboard'])
+            @include('builder.layout.dashboard-heading-mobile', ['title'=>'Dashboard' , 'weburl'=>$user->UserURL])
 
             <!-- Head Button Ended -->
             <div class="dashboard-main mt-3">
@@ -105,6 +105,8 @@ $id = Auth::user()->id;
         @include('builder.pages.iframe')
     </div>
 </div>
+
+@include('builder.layout.floating-share')
 
 @endsection
 

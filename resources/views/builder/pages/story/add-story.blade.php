@@ -28,8 +28,8 @@
                     <input type="text" class="form-control" id="story-title" name="story_title" placeholder="Story Title" required>
                     </div>
                     <div class="form-group">
-                        <label for="story-start-date">Story Start Date</label>
-                    <input type="date" class="form-control" id="story-start-date" placeholder="DD/MM/YYYY" name="story_start_date" >
+                        <label for="story-start-date">Story Date</label>
+                    <input type="text" class="form-control date" id="story-start-date" name="story_start_date" >
                     </div>
                     <div class="form-group">
                         <label for="story-place">Story Place</label>

@@ -47,18 +47,18 @@
                         </span>
                     @endif
                 </div>
-                <!-- <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div> -->
+                <div class="form-group form-check">
+                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <label class="form-check-label" for="remember">Remember Me</label>
+                </div>
                 <div class="login-container__social">
                 
                 <h6 class="login-container__social--heading">Not Signed Up Yet? <a href="{{url()->current()}}/signup">Sign Up</a></h6>
                     <div class="login-container__social--buttons">
-                        <a href="/login/facebook">
+                        <a href="{{ route('google-login') }}">
                             <img src="img/buttons/001-search.svg" alt="">
                         </a>
-                         <a href="#">
+                        <a href="{{ route('facebook-login') }}">
                             <img src="img/buttons/002-facebook.svg" alt="">
                         </a>
                     </div>

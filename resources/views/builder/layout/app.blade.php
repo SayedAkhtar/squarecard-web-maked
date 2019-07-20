@@ -29,7 +29,7 @@
     @yield('content')
     @include('builder.pages.share-modal')
     @include('builder.pages.help-modal')
-    @include('builder.layout.floating-share')
+    
 
 
     <div id="mobile-in-landscape">
@@ -114,7 +114,11 @@ $(document).ready(function(){
 
         //Modal Show Up
         $("#btn-help-modal").click(function(){
+            console.log('Hi');
           $(".help-modal-background").fadeIn(100);
+        });
+        $("#btn-help-modal").click(function(){
+           $(".help-modal-background").show();
         });
 
       //Modal show Up
@@ -164,9 +168,13 @@ $(document).ready(function(){
           }
           $(this).toggleClass('active');
       });
+      
       $('#mobile-heading-menu').click(function(){
         $(".mobile-heading-menu--container").toggle();
-      })
+      });
+
+    $(".date").datepicker();
+
 
 });
 

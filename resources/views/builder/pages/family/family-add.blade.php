@@ -27,10 +27,21 @@
                     <form class="mt-5" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name">
                         </div>
                         <div class="form-group">
-                            <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" name="date">
+                            <input type="text" class="form-control date" id="" name="date">
                         </div>
                         <div class="form-group">
                             <select type="text" class="form-control" id="formGroupExampleInput2" placeholder="Maritial Status" name="maritial_status">
@@ -52,17 +63,6 @@
                         </div>
                         <div class="form-group">
                             <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="About" name="about" rows="5"></textarea>
-                        </div>
-                        <div class="form-group">
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
                         </div>
                         <input type="file" name="image" id="imageInput" style="display:none">
                         <div class="d-flex justify-content-end">

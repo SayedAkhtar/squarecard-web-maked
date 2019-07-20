@@ -58,12 +58,7 @@ class storyCRUD extends Controller
         return redirect("/builder/dashboard/story");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function add()
     {
         //
@@ -72,12 +67,6 @@ class storyCRUD extends Controller
         return view("builder/pages/story/add-story", ['user'=>$url]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
@@ -88,15 +77,12 @@ class storyCRUD extends Controller
         return view("/builder/pages/story/edit-story",['story' => $story, 'user'=>$data]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Request $request, $id)
     {
         //
+        $this->validate($request, [
+           'about' =>   'max:250',
+        ]);
         $data = Story::findOrFail($id);
         $data->story_title = $request->story_title;
         $data->story_venue = $request->story_place;

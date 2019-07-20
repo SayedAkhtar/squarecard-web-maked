@@ -28,14 +28,14 @@ Route::get('/builder/signup', 'builderFrontend@signup');
 Route::get('/builder/information', 'builderFrontend@signupInformation');
 Route::post('/builder/information', 'builderFrontend@createUser');
 Route::post('/builder/information/checkurl', 'builderFrontend@checkUserUrl');
-Route::get('/builder/dashboard', 'builderFrontend@showDashboard');
-
+Route::get('/builder/dashboard', 'builderFrontend@showDashboard')->name('dashboard');
 Route::get('/builder/dashboard/template-edit', 'builderFrontend@listTemplates')->name('templates');
 
 
 //Basic Details
 Route::get('/builder/dashboard/basic-details', 'basicDetailsCRUD@index');
 Route::post('/builder/dashboard/basic-details/edit', 'basicDetailsCRUD@edit');
+Route::get('builder/dashboard/template-edit/{template_name}', 'basicDetailsCRUD@updateTemplate');
 
 //Story
 Route::get('/builder/dashboard/story', "storyCRUD@index")->name('story');
@@ -90,9 +90,9 @@ Route::post('/builder/dashboard/registry/delete', "registryCRUD@destroy");
 Route::post('builder/dashboard/send-query', 'HomeController@send-query');
  
 
-Route::get('login/facebook', 'Auth\LoginController@redirectToFacebookProvider');
+Route::get('login/facebook', 'Auth\LoginController@redirectToFacebookProvider')->name('facebook-login');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleFacebookProviderCallback');
-Route::get('login/google', 'Auth\LoginController@redirectToGoogleProvider');
+Route::get('login/google', 'Auth\LoginController@redirectToGoogleProvider')->name('google-login');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleProviderCallback');
 
 

@@ -46,14 +46,14 @@ $url = (substr(url()->current(),0, $pos));
                     </div>
                     <div class="form-group">
                     <label for="event-date" class="important-form-feild">Event Date</label>
-                    <input type="date" class="form-control" id="formGroupExampleInput2" placeholder="DD/MM/YYYY" pattern="dd-mm-yyyy" name="event_date" value="{{$date}}" id="event-date" required>
+                    <input type="text" class="form-control date"  name="event_date" value="{{$date}}" id="event-date" required>
                     </div>
                     <div class="form-group">
                         <label for="event-venue">Event Venue</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Event Venue" name="event_venue" value="{{$venue}}" id="event-venue">
+                        <input type="text" class="form-control" placeholder="Event Venue" name="event_venue" value="{{$venue}}" id="event-venue">
                     </div>
                     <div class="form-group">
-                    <textarea type="text" class="form-control" id="formGroupExampleInput2" placeholder="Describe Your Event" name="event_about" rows="5">{{$details->about}}</textarea>
+                    <textarea type="text" class="form-control" placeholder="Describe Your Event" name="event_about" rows="5">{{$details->about}}</textarea>
                     </div>
                     @if ($details->cover_image != null)
                         

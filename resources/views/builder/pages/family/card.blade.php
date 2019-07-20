@@ -1,9 +1,9 @@
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3" >
     <div class="row no-gutters">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12">
         <img src="{{asset("images/".$data->image)}}" class="card-img h-100" alt="...">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-12">
             <div class="card-body pb-2">
             <h5 class="card-title text-capitalize">{{$data->name}}</h5>
                 <div class="d-flex justify-content-sm-between">

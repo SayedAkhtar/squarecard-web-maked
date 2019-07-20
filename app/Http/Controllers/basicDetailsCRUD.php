@@ -27,6 +27,14 @@ class basicDetailsCRUD extends Controller
         return view('builder/pages/basicDetails/index',['details' => $details, 'user'=>$url]);
     }
 
+    public function updateTemplate($template_name){
+        $id = Auth::user()->id;
+        $url = UserUrls::where('user_id', $id)->first();
+        $url->template_name= $template_name;
+        $url->save();
+        
+        return back();
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -89,7 +97,7 @@ class basicDetailsCRUD extends Controller
             $data->cover_image = $input['imagename'];
         }
         $data->save();
-        return redirect("/builder/dashboard/basic-details",['user'=>$url]);
+        return back();
     }
 
     /**

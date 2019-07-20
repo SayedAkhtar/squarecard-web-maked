@@ -44,13 +44,13 @@ return [
         ],
     ],
     'facebook' => [
-        'client_id' => "299496364277226",
-        'client_secret' => "a0a0e3d6624fd415dbcef269f8bc0dc1",
+        'client_id' => "475002973042012",
+        'client_secret' => "2f8e1a4ee654c7783716b29c0ab5f6e9",
         'redirect' => env('APP_URL').'/login/facebook/callback',
     ],
     'google' => [
-        'client_id' => "1054227832294-jj9gi4826hk9b3q7j4crv70e06crn8t3.apps.googleusercontent.com",
-        'client_secret' => "kaI-Q1qN9bQcD6BP5OBcDhHk",
+        'client_id' => "834994240887-4mioe25b8ntbfs6rfgarvaregjlejulu.apps.googleusercontent.com",
+        'client_secret' => "1A9JXuJ964hNbSzuWfx8mJ4P",
         // 'redirect' => 'http://127.0.0.1:8000/login/google/callback',
         'redirect' => env('APP_URL').'/login/google/callback',
     ],

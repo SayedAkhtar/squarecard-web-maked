@@ -23,21 +23,30 @@
                 <div class="col-md-7">
                 <form class="" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                     @csrf
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="story-title" class="important-form-feild">Story Title</label>
                     <input type="text" class="form-control" id="story-title" name="story_title" value="{{$story->story_title}}" required>
                     </div>
                     <div class="form-group">
-                        <label for="story-start-date">Story Start Date</label>
-                    <input type="date" class="form-control" id="story-start-date" name="story_start_date" value="{{$story->date}}">
+                        <label for="story-start-date">Story Date</label>
+                        <input type="text" class="form-control date" id="story-start-date" name="story_start_date" value="{{$story->date}}">
                     </div>
                     <div class="form-group">
                     <label for="story-place">Story Place</label>
                     <input type="text" class="form-control" id="story-place"  name="story_place" value="{{$story->story_venue}}">
                     </div>
                     <div class="form-group">
-                        <label for="story-momentd" class="important-form-feild">Story Description</label><small>MAX: 150 Characters.</small>
-                    <textarea type="text" class="form-control" id="story-moments" placeholder="Describe Your Moment" name="about" rows="5" required>{{$story->story_short_description}}</textarea>
+                        <label for="story-momentd" class="important-form-feild">Story Description</label><small>MAX: 250 Characters.</small>
+                    <textarea type="text" class="form-control" id="story-moments" placeholder="Describe Your Moment" name="about" rows="5" required>{{isset($story)&& $story->story_short_description ? $story->story_short_description: old('about')}}</textarea>
                     </div>
                     <input type="file" name="image" id="imageInput" hidden>
                     <div class="d-flex justify-content-end">

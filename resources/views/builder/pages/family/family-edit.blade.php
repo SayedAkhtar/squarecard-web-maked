@@ -27,6 +27,17 @@
                     <form class="mt-5" method="POST" action="{{url()->current()}}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             <label for="family-full-name">Full Name</label>
                             <input type="text" class="form-control" id="family-full-name" name="full_name" 
                             value="{{$data->name}}"
@@ -35,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="family-age">Age</label>
-                            <input type="text" class="form-control" id="family-age" placeholder="Age" name="date" value="{{$data->age}}">
+                            <input type="text" class="form-control" id="family-age" name="date" value="{{$data->age}}">
                         </div>
 
                         <div class="form-group">
@@ -48,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="family-profession">Profession</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput4" name="profession" value="{{$data->profession}}">
+                        <input type="text" class="form-control" id="" name="profession" value="{{$data->profession}}">
                         </div>
 
                         <div class="form-group">
@@ -62,17 +73,7 @@
                         <textarea type="text" class="form-control" id="formGroupExampleInput6" name="about" rows="5">{{$data->about}}</textarea>
                         <input type="file" name="image" id="imageInput" style="display:none">
                         </div>
-                        <div class="form-group">
-                                @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                        </div>
+
                         <div class="d-flex justify-content-end">
                             {{-- <button type="button" class="btn btn-cancel">Cancel <span class="text-uppercase"> x </span></button> --}}
                             <button type="submit" class="btn btn-submit">Submit <span class="text-uppercase"> > </span></button>
