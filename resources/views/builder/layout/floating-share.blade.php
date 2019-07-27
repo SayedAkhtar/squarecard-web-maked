@@ -4,7 +4,7 @@
 <div class="share-buttons-container">
     <ul class="share-buttons--wrap">
         <li class="share-buttons--button" id="share-1">
-            <a href="whatsapp://send?text=You are invited to our wedding. {{env('APP_URL').'/'.App\UserUrls::EventUrl()}}" data-action="share/whatsapp/share" target="_blank">
+            <a href="whatsapp://send?text=You are invited to our wedding. Please use this invite code {{App\UserUrls::EventCode()}} or{{env('APP_URL').'/'.App\UserUrls::EventUrl()}}" data-action="share/whatsapp/share" target="_blank">
                 <img src="{{asset('img/buttons/whatsapp.png')}}" alt="" class="share-buttons--button--img" >
             </a>
         </li>
