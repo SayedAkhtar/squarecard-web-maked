@@ -27,7 +27,7 @@ $('#share-3').click(function(){
     if (navigator.share) {
       navigator.share({
           title: 'Wedding Card',
-          text: 'You are Invited to the wedding. {{App\UserUrls::EventCode()}}',
+          text: 'You are Invited to the wedding. Your Invite code is: {{App\UserUrls::EventCode()}}',
           url: '{{env('APP_URL').'/'.App\UserUrls::EventUrl()}}',
       })
         .then(() => console.log('Successful share'))
