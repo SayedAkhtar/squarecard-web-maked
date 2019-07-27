@@ -5,7 +5,7 @@
         <div class="container-fluid">
             @include('builder.layout.dashboard-heading-pc',['title'=>'Select Template', 'back'=> '/builder/dashboard'])
             @include('builder.layout.dashboard-heading-mobile',['title'=>'Select Template', 'back'=> '/builder/dashboard'])
-                
+
 
             <!-- Card Container -->
             <div class="row">
@@ -19,7 +19,7 @@
                             @csrf
                             <input type="text" name="template_name" value="{{$item->template_name}}">
                         </form> --}}
-                        <a href="{{url()->current()}}/{{$item->template_name}}" style="color:inherit;" >
+                        <a href="{{url()->current()}}/{{$item->template_name}}" style="color:inherit;height: 300px;" >
                         <img src="{{asset('img/templates/'.$item->template_name.'/index.jpg')}}" class="card-img" alt="...">
                         {{-- <div class="card-img-overlay">
                             <p class="card-text text-capitalize">{{}}</p>
@@ -32,9 +32,9 @@
                 @endforeach
             <!-- Card container ends -->
         </div>
-        
+
     </div>
-   
+
 </div>
-    
+
 @endsection
