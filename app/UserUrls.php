@@ -47,12 +47,20 @@ class UserUrls extends Model
     public static function EventCode(){
         $id = Auth::user()->id;
         $code = UserUrls::class;
-        return $code::find($id)->event_code;
+        if($code::find($id)) {
+            return $code::find($id)->event_code;
+        }else{
+            return null;
+        }
     }
 
     public static function EventUrl(){
         $id = Auth::user()->id;
         $code = UserUrls::class;
-        return $code::find($id)->UserURL;
+        if($code::find($id)) {
+            return $code::find($id)->UserURL;
+        }else{
+            return null;
+        }
     }
 }

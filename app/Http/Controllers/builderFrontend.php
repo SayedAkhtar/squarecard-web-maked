@@ -42,10 +42,11 @@ class builderFrontend extends Controller
     }
 
     public function signupInformation(){
-        if(UserUrls::EventUrl() == null){
-            return view('/builder/pages/basic-required');
+        if(UserUrls::EventUrl() != null) {
+            return redirect(route('dashboard'));
+
         }else{
-            return redirect (route('dashboard'));
+            return view('/builder/pages/basic-required');
         }
     }
     public function createUser(Request $request){
