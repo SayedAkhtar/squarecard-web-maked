@@ -214,9 +214,18 @@ header .wedding-month-display {
   font-weight: 500;
 }
 
+.story--image-img{
+  width: -webkit-fill-available;
+  height: max-content;
+}
+
 .about-couple__container-couple-image {
   width: 100%;
   display: block;
+}
+
+.couple-image{
+  min-height: 300px;
 }
 
 .about-couple__container-couple-image img {
@@ -278,6 +287,7 @@ header .wedding-month-display {
 .family__container--image-img {
   display: block;
   margin: 0 auto;
+  height: 300px;
 }
 
 .family__container--text {
@@ -288,6 +298,7 @@ header .wedding-month-display {
   margin-top: 10px;
   margin-bottom: 0;
 }
+
 
 .contact {
   text-align: center;

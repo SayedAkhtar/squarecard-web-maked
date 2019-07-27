@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="{{asset("css/owl.theme.default.min.css")}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset("css/main.css")}}">
-    <link rel="stylesheet" href="{{asset("css/mobile.css")}}">    
+    <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
 </head>
-<body>    
+<body>
     <div class="login-container">
         <h1 class="login-container-heading">One more step ...</h1>
         <form action="{{url()->current()}}" method="POST">
@@ -30,7 +30,7 @@
                 <input type="text" class="form-control" id="event-name" placeholder="Event name" name="event_name">
             </div>
             <div class="form-group">
-                <select name="userurl" id="option" class="form-control" 
+                <select name="userurl" id="option" class="form-control"
                 style="border-left: none;
                        border-right: none;
                        border-top: none;
@@ -38,9 +38,10 @@
                        border-width: 2px;">
                     <option value="" selected> Chose Your URL </option>
                 </select>
+
                 {{-- <a href="#" id="check-available"><small>Check available</small></a> --}}
             </div>
-            @if ($errors->all())    
+            @if ($errors->all())
                 <div class="form-group">
                   @foreach ($errors->all() as $item)
                     <div class="alert alert-danger" role="alert">
@@ -49,7 +50,7 @@
                   @endforeach
                 </div>
             @endif
-            
+
            <div class="p-2 m-5"></div>
             <button type="submit" class="btn login-container__social--submit">Continue</button>
         </form>
@@ -68,16 +69,17 @@
         $("#bride-name").on('keyup', function(e){
             y = $(this)[0].value;
         })
-        $("#option").click(function(){           
+        $("#option").click(function(){
         $.ajax({
             headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-                    'Access-Control-Allow-Origin': '*' 
+                    'Access-Control-Allow-Origin': '*'
                 },
-            data: { groom_name: x, bride_name: y}, 
+            data: { groom_name: x, bride_name: y},
             url: url,
             method: 'post',
             success: function(data){
+                $('#option').html('');
                 data.forEach(element => {
                     $( "#option" ).append( `<option value="${element}">${element}</option>" `);
                     // console.log(element);

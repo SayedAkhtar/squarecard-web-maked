@@ -77,10 +77,10 @@
                         <div class="person-container person-container--1">
                             <div class="person-container--info">
                                 <h3>{{$groom_name}}</h3>
-                                <p>Software Engineer</p>
+                                <p>{{$about->groom_profession}}</p>
                             </div>
                             <div class="person-container--image">
-                                <img src="{{asset('images/'.$about->groom_image)}}" alt="">
+                                <img src="{{asset('images/'.(isset($about) && $about->groom_image ? $about->groom_image : 'avatar.svg'))}}" alt="">
                             </div>
                         </div>
                     </div><!--col Ends-->
@@ -88,11 +88,11 @@
                     <div class="col-md-6 c0l-sm-12 mx-0 px-0">
                         <div class="person-container">
                             <div class="person-container--image">
-                                <img src="{{asset('images/'.$about->bride_image)}}" alt="">
+                                <img src="{{asset('images/'.(isset($about) && $about->bride_image ? $about->bride_image : 'avatar.svg'))}}" alt="">
                             </div>
                             <div class="person-container--info">
                                 <h3>{{$bride_name}}</h3>
-                                <p>Lead Product Engineer</p>
+                                <p>{{$about->bride_profession}}</p>
                             </div>
                         </div>
                     </div><!--Col Ends-->
@@ -181,7 +181,7 @@
                                     <h5 class="event-note__container--event">{{$data->event_name}}</h5>
                                     <span class="event-note__container--time">{{$data->event_start_date}}</span>
                                     <p class="event-note__container--venue">{{$data->event_venue}}</p>
-                                    <input type="button" class="btn btn-outline-danger" value="View On Map" onclick="window.open(`https://www.google.com/maps/place/Reddy's+Function+Hall,+Siddipet/@18.0801881,78.8614574,17z/data=!3m1!4b1!4m5!3m4!1s0x3bcc92c02c0979db:0xc19d2f2acef9b5c2!8m2!3d18.0801881!4d78.8636461`)" />
+                                    {{-- <input type="button" class="btn btn-outline-danger" value="View On Map" onclick="window.open(`https://www.google.com/maps/place/Reddy's+Function+Hall,+Siddipet/@18.0801881,78.8614574,17z/data=!3m1!4b1!4m5!3m4!1s0x3bcc92c02c0979db:0xc19d2f2acef9b5c2!8m2!3d18.0801881!4d78.8636461`)" /> --}}
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                             <div class="person-container person-container--1">
                                 <div class="person-container--info">
                                     <h3>{{$groom_name}}</h3>
-                                    <p>Software Engineer</p>
+                                    <p>{{$about->groom_profession}}</p>
                                 </div>
                                 <div class="person-container--image">
                                     <img src="{{asset('images/'.$about->groom_image)}}" alt="">
@@ -257,7 +257,7 @@
                                 </div>
                                 <div class="person-container--info">
                                     <h3>{{$bride_name}}</h3>
-                                    <p>Lead product Engineer</p>
+                                    <p>{{$about->groom_profession}}</p>
                                 </div>
                             </div>
                         </div><!--Col Ends-->

@@ -1,7 +1,7 @@
 <?php
 
-    $groom_name = ($about->groom_name != null) ? $about->groom_name : 'John Doe' ;
-    $bride_name = ($about->bride_name != null) ? $about->bride_name : 'Anna Jane' ;
+    $groom_name = isset($about->groom_name) ? $about->groom_name : 'John Doe' ;
+    $bride_name = isset($about->bride_name) ? $about->bride_name : 'Anna Jane' ;
     $count = sizeof($story);
     function day($datetime){
         $datetime = explode(' ' ,Carbon\Carbon::parse($datetime)->format('d F Y'));
@@ -147,7 +147,7 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 story--image">
-                <img src="{{asset('images/'.$data->story_image)}}" alt="" class="img-responsive h-100">
+                <img src="{{asset('images/'.$data->story_image)}}" alt="" class="img-responsive story--image-img">
             </div>
         </div>
         @endif
@@ -176,7 +176,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-sm-12 about-couple__container-couple-image">
-                        <img src="{{asset('images/'.$about->bride_image)}}" alt="" class="img-responsive couple-image" id="bride-image">
+                        <img src="{{asset('images/'. (isset($about) && $about->bride_image ? $about->bride_image : 'avatar.svg'))}}" alt="Couples Image" class="img-responsive couple-image" id="bride-image">
                     </div>
                 </div>
             </div>
@@ -196,7 +196,7 @@
                         </p>
                     </div>
                     <div class="col-md-6 col-sm-12 about-couple__container-couple-image">
-                        <img src="{{asset('images/'.$about->groom_image)}}" alt="" class="img-responsive couple-image" id="groom-image">
+                        <img src="{{asset('images/'.(isset($about) && $about->groom_image ? $about->groom_image : 'avatar.svg'))}}" alt="" class="img-responsive couple-image" id="groom-image">
                     </div>
                 </div>
             </div>
@@ -237,23 +237,6 @@
                 @endwhile
 
                 <!-- End  -->
-                {{-- <div class="col-md-4 col-sm-12">
-                    <h3 class="schedule--heading">Reception</h3>
-                    <div class="display-6 text-capitalize schedule--place"><i>Cafe House</i></div>
-                    <small class="schedulr--address"><i>22 Walton Street</i> </small>
-
-                    <span class="h4 text-bold">28</span>
-                    <span class="display-5 text-bold">April</span>
-                </div> --}}
-                <!-- End -->
-                {{-- <div class="col-md-4 col-sm-12">
-                    <h3 class="schedule--heading">Party</h3>
-                    <div class="display-6 text-capitalize schedule--place"><i>Mary's House</i></div>
-                    <small class="schedulr--address"><i>At house</i> </small>
-
-                    <span class="h4 text-bold">2</span>
-                    <span class="display-5 text-bold">May</span>
-                </div> --}}
 
             </div>
         </div>

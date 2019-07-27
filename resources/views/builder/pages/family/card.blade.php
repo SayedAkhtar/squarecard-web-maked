@@ -1,6 +1,6 @@
-<div class="card mb-3" >
-    <div class="row no-gutters">
-        <div class="col-md-4 col-sm-12">
+<div class="card mb-3">
+    <div class="row no-gutters card-image-row">
+        <div class="col-md-4 col-sm-12 card-image-container">
         <img src="{{asset("images/".$data->image)}}" class="card-img h-100" alt="...">
         </div>
         <div class="col-md-8 col-sm-12">

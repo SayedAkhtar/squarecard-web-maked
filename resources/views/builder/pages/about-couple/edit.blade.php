@@ -19,7 +19,7 @@
                 <div class="col-md-5 col-sm-12">
                     <h5 class="mb-2 text-capitalize">{{$page_name}}</h5>
                     <div class="card bg-dark text-white" id="imageInputBtn">
-                        <img src="@if($image != null){{asset("images/".$image) }}@endif"
+                        <img src="@if($image != null){{asset("images/".$image) }}@else{{asset("img/capture.png")}}@endif"
                             class="card-img" id="userImage" alt="...">
                         <div class="card-img-overlay">
                            {{-- <button class="btn btn-secondary" > Change Photo </button> --}}
@@ -43,7 +43,7 @@
                             value="@if($dob != null){{$dob}}@endif">
                         </div>
                         <div class="form-group">
-                            <label for="couple-prfession"></label>
+                            <label for="couple-prfession">Profession</label>
                             <input type="text" class="form-control" id="couple-profession" name="profession"
                             value="@if($profession != null){{$profession}}@endif">
                         </div>

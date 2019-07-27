@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\PhotoAlbum;
 use App\Photo;
 use App\UserUrls;
+use ImageOptimizer;
 
 class photoCRUD extends Controller
 {

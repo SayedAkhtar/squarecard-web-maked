@@ -10,7 +10,7 @@
         <!-- <h5 class="mb-2">Bride</h5> -->
         <div class="container add-story__container">
             @include('builder.layout.dashboard-heading-pc',['title'=>'Schedule | Edit', 'back'=> '/builder/dashboard/schedule/'])
-            @include('builder.layout.dashboard-heading-mobile',['title'=>'Echedule | Edit', 'back'=> '/builder/dashboard/schedule/'])
+            @include('builder.layout.dashboard-heading-mobile',['title'=>'Schedule | Edit', 'back'=> '/builder/dashboard/schedule/'])
 
             <div class="col-md-7">
                     
@@ -26,13 +26,13 @@
                         <div class="col-6 p-0">
                         <label for="event-start-date" class="important-form-feild">Start Date</label>
                         <input type="text" class="form-control date" id="event-start-date" name="event_start_date"
-                        value="{{$data->event_start_data}}" required
+                        value="{{$data->event_start_data}}" required placeholder="Start Date"
                         >
                         </div>
                         <div class="col-6 p-0">
                         <label for="event-start-time" class="important-form-feild">Start Time</label>
                         <input type="time" class="form-control" id="formGroupExampleInput3" name="event_start_time"
-                        value="{{$data->event_start_time}}" required
+                        value="{{$data->event_start_time}}" required placeholder="Start Time"
                         >
                         </div>
                     </div>
@@ -40,13 +40,13 @@
                         <div class="col-6 p-0">
                         <label for="event-end-date">End Date</label>
                         <input type="text" class="form-control date" id="event-end-date" name="event_end_date"
-                        value="{{$data->event_end_date}}"
+                        value="{{$data->event_end_date}}" placeholder="End Date"
                         >
                         </div>
                         <div class="col-6 p-0">
-                        <label for="event-end-time">Event Time</label>
+                        <label for="event-end-time">End Time</label>
                         <input type="time" class="form-control" id="event-end-time" name="event_end_time"
-                        value="{{$data->event_end_time}}"
+                        value="{{$data->event_end_time}}" placeholder="End Time"
                         >
                         </div>
                     </div>
@@ -70,6 +70,13 @@
                     <div class="form-group">
                     <input type="file" class="form-control" id="formGroupExampleInput10" placeholder="Event Image" name="image" >
                     </div>
+                    @if(isset($data->event_image))
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="{{asset('images/'.$data->event_image)}}" alt="Schedule Image" class="w-100">
+                        </div>
+                    </div>
+                    @endif
                     <div class="form-group">
                             @if ($errors->any())
                             <div class="alert alert-danger">

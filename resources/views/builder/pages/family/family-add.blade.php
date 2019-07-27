@@ -38,10 +38,10 @@
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name">
+                            <input type="text" class="form-control" id="formGroupExampleInput" name="full_name" placeholder="Full name" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control date" id="" name="date">
+                            <input type="text" class="form-control date" id="" name="date" placeholder="Date of Birth">
                         </div>
                         <div class="form-group">
                             <select type="text" class="form-control" id="formGroupExampleInput2" placeholder="Maritial Status" name="maritial_status">

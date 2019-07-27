@@ -14,13 +14,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset("css/main.css")}}">
     <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
-    
-    <style>
-    
-  </style>
-    
 
-    
+    <style>
+
+  </style>
+
+
+
 </head>
 <body><!-- Script -->
 
@@ -52,7 +52,7 @@
                     <label class="form-check-label" for="remember">Remember Me</label>
                 </div>
                 <div class="login-container__social">
-                
+
                 <h6 class="login-container__social--heading">Not Signed Up Yet? <a href="{{url()->current()}}/signup">Sign Up</a></h6>
                     <div class="login-container__social--buttons">
                         <a href="{{ route('google-login') }}">
@@ -63,16 +63,18 @@
                         </a>
                     </div>
                 </div>
-                <h6 class="login-container__social--heading">Forgot Password? <a href="{{ route('password.request') }}">Reset Password</a></h6>
-                <button type="submit" class="btn login-container__social--submit">Continue</button>
+                <h6 class="login-container__social--heading">Forgot Password?
                     @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="">
-                            {{ __('Forgot Your Password?') }}
+                        <a class="" href="{{ route('password.request') }}">
+                            {{ __('Reset Password') }}
                         </a>
                     @endif
+                </h6>
+                <button type="submit" class="btn login-container__social--submit">Continue</button>
+
             </form>
         </div>
-    
+
 
 
 
@@ -82,9 +84,9 @@
     <script src="{{asset("js/bootstrap.min.js")}}"></script>
     <script src="{{asset("js/owl.carousel.min.js")}}"></script>
     <script src="{{asset("js/dashboardScript.js")}}"></script>
-    
+
     <script>
-    
+
     $('.owl-carousel').owlCarousel({
         loop:false,
         margin:10,
@@ -102,42 +104,42 @@
             }
         }
     })
-    
+
     $(document).ready(function(){
         $("#imageInputBtn").click(function(){
             $("#imageInput").trigger("click");
         });
         // $('[data-toggle=tooltip]').tooltip('show');
     });
-    
+
     function readURL(input) {
-    
+
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-    
+
       reader.onload = function(e) {
         $('#userImage').attr('src', e.target.result);
       }
-    
+
       reader.readAsDataURL(input.files[0]);
     }
     }
-    
+
     $("#imageInput").change(function() {
     readURL(this);
     });
-    
+
     $( function() {
           $( ".date" ).datepicker();
     } );
-    
+
     $('.form-control').each(function(e){
     });
-      
-    
+
+
     </script>
     </body>
     </html>
-    
- 
+
+
 

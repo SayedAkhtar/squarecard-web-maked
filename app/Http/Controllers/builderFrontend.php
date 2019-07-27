@@ -20,31 +20,37 @@ class builderFrontend extends Controller
 {
 
     public function login(){
-        return view('/builder/pages/login');
+        if (Auth::guest()) {
+            return view('/builder/pages/login');
+        }
+        else{
+            $id = Auth::user()->id;
+            $user = UserUrls::where('user_id',$id)->first();
+            return redirect (route('dashboard'));
+        }
     }
+
     public function signup(){
-        return view('/builder/pages/signup');
+        if (Auth::guest()) {
+            return view('/builder/pages/signup');
+        }
+        else{
+            $id = Auth::user()->id;
+            $user = UserUrls::where('user_id',$id)->first();
+            return redirect (route('dashboard'));
+        }
     }
+
     public function signupInformation(){
         return view('/builder/pages/basic-required');
     }
     public function createUser(Request $request){
-        $url = new UserUrls();
-        $basic = new BasicDetails();
-        $about = new About();
         $id = Auth::user()->id;
-        $url->user_id = $id;
-        $url->UserURL = $request->userurl;
-        $url->template_name = 'basic';
-        $basic->user_urls_id = $id;
-        $basic->groom_name = $request->groom_name;
-        $basic->bride_name = $request->bride_name;
-        $basic->bride_name = $request->bride_name;
-        $basic->event_name = $request->event_name;
-        $about->user_urls_id = $id;
-        $about->groom_name = $request->groom_name;
-        $about->bride_name = $request->bride_name;
-        $about->bride_name = $request->bride_name;
+        $input = $request->only(['userurl', 'groom_name', 'bride_name', 'event_name']);
+        $url = UserUrls::create(['user_id'=> $id, 'UserURL'=> $input['userurl'], 'template_name'=> 'basic', 'event_code' => random_int(10,99).$id.random_int(100,999)]);
+        $basic = BasicDetails::create(['user_urls_id'=> $id, 'groom_name'=> $input['groom_name'], 'bride_name'=> $input['bride_name'], 'event_name'=> $input['event_name']]);
+        $about = About::create(['user_urls_id'=> $id, 'groom_name'=> $input['groom_name'], 'bride_name'=> $input['bride_name']]);
+
         $url->save();
         $basic->save();
         $about->save();
@@ -97,7 +103,7 @@ class builderFrontend extends Controller
     public function showDashboard(){
         if(Auth::user()){
         $id = Auth::user()->id;
-        $user = UserUrls::where('user_id',2)->first();
+        $user = UserUrls::where('user_id',$id)->first();
         // dd($user);
             return view('/builder/pages/dashboard', ['user' => $user]);
         }
@@ -119,7 +125,7 @@ class builderFrontend extends Controller
         $mobile = $request->input('query-mobile');
         $query = $request->input('query-msg');
 
-        
+
         $mailer->to('sayed182@gmail.com')->send(new QueryMail($name, $email, $mobile, $query));
         return back()->with('success', "Message submitted");
     }

@@ -10,7 +10,7 @@ $white: #fff;
 @import './floating-button';
 
 html{
-    overflow-x:hidden; 
+    overflow-x:hidden;
 }
 
 body{
@@ -28,20 +28,21 @@ body{
 
     &-img{
         border-radius: 10px;
+        height: -webkit-fill-available;
     }
 }
 .text-dark{
     color: #000!important;
 }
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-input[type=date]::-webkit-inner-spin-button, 
-input[type=date]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 a{
     color: inherit;
@@ -110,7 +111,7 @@ a:active{
     &:hover{
         background: #fff;
     }
- 
+
 
     &:not(:last-child){
         margin-right: 32px;
@@ -141,7 +142,7 @@ a:active{
     border-radius: 100%;
     font-size: 2rem;
     margin: 0 auto;
-    
+
     & a{
         color: #fff;
         &:hover{
@@ -160,12 +161,13 @@ a:active{
     min-width: 400px;
     background: $white;
     padding: 2rem 3rem;
+    padding-bottom: 4rem;
     border-radius: 1rem;
     position: absolute;
     // top: 50%;
     left: 50%;
     transform: translate(-50%,10%);
-    
+
     &-heading{
         text-align: center;
         margin-bottom: 2rem;
@@ -180,13 +182,13 @@ a:active{
         border-radius: 0px;
         border-width: 2px;
         padding-left: 2px;
-        
+
     }
 
     &__social{
-        padding-bottom:3rem;
+        padding-bottom:0.5rem;
         &--heading{
-            padding: 1rem 0; 
+            padding: 1rem 0;
             text-align: center;
         }
         &--buttons{
@@ -229,13 +231,13 @@ a:active{
 .about-card{
     margin-top:8%;
     position: relative;
-    
+
     & .card{
 
         &-img{
             display: block;
             max-height: 400px;
-        } 
+        }
 
         & .card-img-overlay{
             display: flex;
@@ -243,7 +245,7 @@ a:active{
             justify-content: flex-end;
             background-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0.8));
             border-radius: 10px;
-    
+
             & .card-title{
                 font-weight: 700;
             }
@@ -268,7 +270,7 @@ a:active{
     height: 100vh;
 }
 
-//============= Story 
+//============= Story
 .add-story{
      position: relative;
 
@@ -381,7 +383,7 @@ a:active{
                 }
             }
             & .mobile-preview{
-               
+
                 display: none;
                 &--img{
                     height: calc(1334px * 0.35);
@@ -421,7 +423,7 @@ a:active{
                     }
                 }
             }
-           
+
         }
     }
 
@@ -457,7 +459,7 @@ a:active{
 
 
 .form-control .login{
-    // border-bottom: 2px solid; 
+    // border-bottom: 2px solid;
 }
 
 //=================== Modal Styles ===============
@@ -576,7 +578,7 @@ a:active{
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: center;  
+          align-items: center;
       }
     display: none;
   }
@@ -598,4 +600,10 @@ a:active{
 }
 .share-buttons-container{
     display: none;
+}
+
+@media (min-width:800px){
+    .card-image-row{
+        width:500px !important;
+    }
 }

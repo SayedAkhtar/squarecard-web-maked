@@ -1,5 +1,5 @@
 @php
-    $url = env('APP_URL').'/'.$user->UserURL;
+    $url = env('APP_URL').'/'.\App\User::find(Auth::user()->id)->UserUrl->UserURL;
 @endphp
 <div class="background">
   <div class="share-modal">

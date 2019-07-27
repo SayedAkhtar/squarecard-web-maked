@@ -13,10 +13,10 @@ $i = $length ;
                     Failed to upload {{$errors->first()}}
                 </div>
             @endif
-            @include('builder.layout.dashboard-heading-pc',['title'=>'Photoes', 'back'=> '/builder/dashboard'])
-            @include('builder.layout.dashboard-heading-mobile',['title'=>'Photoes', 'back'=> '/builder/dashboard'])
+            @include('builder.layout.dashboard-heading-pc',['title'=>'Photos', 'back'=> '/builder/dashboard'])
+            @include('builder.layout.dashboard-heading-mobile',['title'=>'Photos', 'back'=> '/builder/dashboard'])
             <div class="row">
-                <div class="col-3">
+                <div class="col-md-3 col-sm-12">
                     <div class="card bg-light text-white" >
                         <img src="{{asset("img/capture.png")}}" class="card-img" alt="..." id="imageInputBtn">
                         <div>
@@ -30,15 +30,15 @@ $i = $length ;
                 </div>
 
                 @while ($i--)
-                <div class="col-3">
+                <div class="col-md-3 col-sm-12">
                     <div class="card bg-dark text-white">
                         <img src="{{asset("images/".$data[$i]->image)}}" class="card-img" alt="...">
                             <div class="card-img-overlay">
-                                <form action="{{url()->current()}}/delete" method="post" id="deletePhoto">
+                                <form action="{{url()->current()}}/delete/" method="post" id="deletePhoto-{{$data[$i]->id}}">
                                     @csrf
                                 <input type="text" value="single" name="type" hidden>
                                 <input type="number" value="{{$data[$i]->id}}" name="id" hidden>
-                                <a type="submit" class="no-link-style"  onclick="document.getElementById('deletePhoto').submit()">
+                                <a type="submit" class="no-link-style"  onclick="document.getElementById('deletePhoto-{{$data[$i]->id}}').submit()">
                                     <i class="fas fa-times"></i>
                                 </a>
                                 </form>

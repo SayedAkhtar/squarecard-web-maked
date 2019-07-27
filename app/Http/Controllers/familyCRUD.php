@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\FamilyRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Family;
 use App\UserUrls;
@@ -34,7 +34,7 @@ class familyCRUD extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(FamilyRequest $request)
     {
         //
         $userid = Auth::user()->id;
@@ -107,7 +107,7 @@ class familyCRUD extends Controller
         return view("builder/pages/family/family-add",['user'=>$url]);
     }
 
-    public function edit(Request $request,$id)
+    public function edit(FamilyRequest $request,$id)
     {
         //
         $data = Family::findOrFail($id);

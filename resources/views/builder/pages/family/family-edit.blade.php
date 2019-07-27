@@ -59,7 +59,7 @@
 
                         <div class="form-group">
                             <label for="family-profession">Profession</label>
-                        <input type="text" class="form-control" id="" name="profession" value="{{$data->profession}}">
+                        <input type="text" class="form-control" id="" name="profession" value="{{$data->profession}}" placeholder="Date of Birth">
                         </div>
 
                         <div class="form-group">

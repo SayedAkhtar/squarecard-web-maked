@@ -1,18 +1,17 @@
 @extends('builder.layout.app')
 @section('title', '- Dashboard')
 @section('content')
-    
+
 <?php
 $id = Auth::user()->id;
 ?>
 <div class="row">
-    
+
     <div class="col-md-7 col-sm-12 main-container dashboard">
         <div class="container-fluid">
             {{-- Heading Button --}}
             @include('builder.layout.dashboard-heading-pc', ['title'=>'Dashboard'])
-            @include('builder.layout.dashboard-heading-mobile', ['title'=>'Dashboard' , 'weburl'=>$user->UserURL])
-
+            @include('builder.layout.dashboard-heading-mobile', ['title'=>'Dashboard' , 'weburl'=>App\User::find(Auth::user()->id)->UserUrl->UserURL])
             <!-- Head Button Ended -->
             <div class="dashboard-main mt-3">
                 <div class="dashboard_website-design">
@@ -31,7 +30,7 @@ $id = Auth::user()->id;
 
                 <div class="dashboard_wedding-details mt-3">
                     <h6 class="text-uppercase">Wedding Details</h6>
-                    <div class="d-flex flex-wrap"> 
+                    <div class="d-flex flex-wrap">
                         <a href="{{url()->current()}}/basic-details" class="btn btn-dashboard">
                             <img src="{{asset("img/information.png")}}" alt="" class="img-responsive">
                             <h6 class="dashboard--linkname">Basic Details</h6>

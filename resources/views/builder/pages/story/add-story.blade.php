@@ -11,7 +11,7 @@
             
                     <div class="row">
                     <div class="col-md-5 col-sm-12">
-                            <h5 class="mb-2">Groom</h5>
+                            <h5 class="mb-2"></h5>
                             <div class="card bg-light text-white" id="imageInputBtn">
                                 <img src="{{asset("img/capture.png")}}" class="card-img" alt="..." id="userImage">
                                 <div class="card-img-overlay">

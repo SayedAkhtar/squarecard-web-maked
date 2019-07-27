@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset("css/main.css")}}">
     <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
-    
+
     <style>
   </style>
-    
 
-    
+
+
 </head>
 <body>
     <div class="login-container">
@@ -69,7 +69,6 @@
                 @endforeach
             @endif
             <div class="login-container__social">
-                <h6 class="login-container__social--heading">Already a member? <a href="/builder">login</a></h6>
                 <div class="login-container__social--buttons">
                     <a href="#">
                         <img src="{{asset('img/buttons/001-search.svg')}}" alt="">
@@ -78,6 +77,7 @@
                         <img src="{{asset('img/buttons/002-facebook.svg')}}" alt="">
                     </a>
                 </div>
+                <h6 class="login-container__social--heading">Already a member? <a href="/builder">login</a></h6>
             </div>
             <button type="submit" class="btn login-container__social--submit">Continue</button>
         </form>

@@ -3,8 +3,8 @@
 <div class="row">
     <div class="col-md-7 col-sm-12 about-main-container main-container">
         <div class="container-fluid">
-            @include('builder.layout.dashboard-heading-pc',['title'=>'Registry'])
-            @include('builder.layout.dashboard-heading-mobile',['title'=>'Registry'])
+            @include('builder.layout.dashboard-heading-pc',['title'=>'Registry' , 'back'=> '/builder/dashboard'])
+            @include('builder.layout.dashboard-heading-mobile',['title'=>'Registry' , 'back'=> '/builder/dashboard'])
 
             <!-- Card Container -->
             <div class="row about-card">
@@ -23,7 +23,7 @@
                     <div class="col-md-6 col-sm-12 mt-2">
                         {{-- <h5 class="mb-2">Groom</h5> --}}
                         <div class="card" style="width: 18rem;">
-                            <a href="{{$item->register_url}}" target="_blank"><img src="{{asset("images/".$item->register_image)}}" class="card-img-top" alt="{{$item->register_name}}"></a>
+                            <a href="{{$item->register_url}}" target="_blank"><img src="{{isset($item) && $items->register_image ? asset("images/".$items->register_image) : ""}}" class="card-img-top card-img" alt="{{$item->register_name}}"></a>
                             <div class="card-body">
                                 <h5 class="card-title">{{$item->register_name}}</h5>
                                 

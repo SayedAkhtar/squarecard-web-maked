@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="story-start-date">Story Date</label>
-                        <input type="text" class="form-control date" id="story-start-date" name="story_start_date" value="{{$story->date}}">
+                        <input type="text" class="form-control date" id="story-start-date" name="story_start_date" value="{{$story->story_date}}">
                     </div>
                     <div class="form-group">
                     <label for="story-place">Story Place</label>
