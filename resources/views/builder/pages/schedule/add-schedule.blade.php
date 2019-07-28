@@ -1,5 +1,5 @@
-<?php 
-    
+<?php
+
 ?>
 
 @extends('builder.layout.app')
@@ -10,7 +10,7 @@
         <!-- <h5 class="mb-2">Bride</h5> -->
         <div class="container add-story__container">
                 @include('builder.layout.dashboard-heading-pc',['title'=>'Schedule | Add', 'back'=> '/builder/dashboard/schedule/'])
-                @include('builder.layout.dashboard-heading-mobile',['title'=>'Echedule | Add', 'back'=> '/builder/dashboard/schedule/'])
+                @include('builder.layout.dashboard-heading-mobile',['title'=>'Schedule | Add', 'back'=> '/builder/dashboard/schedule/'])
             <div class="col-md-7">
                 <form class="" enctype="multipart/form-data" method="POST" action="{{url()->current()}}">
                     @csrf
