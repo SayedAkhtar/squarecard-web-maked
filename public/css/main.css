@@ -300,6 +300,10 @@ a:active {
   color: #FFF1ED;
 }
 
+.card-img {
+  max-height: 300px;
+}
+
 .login-container {
   min-width: 400px;
   background: #fff;
