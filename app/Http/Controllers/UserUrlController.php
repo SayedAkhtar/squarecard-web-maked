@@ -23,9 +23,19 @@ class UserUrlController extends Controller
     //     $this->middleware('auth:api');
     // }
     public function invite($invitecode){
-        $url = UserUrls::where('event_code', $invitecode)->first()->toJson();
+        $url = UserUrls::where('event_code', $invitecode)->first();
+        if ($url != null){
+            return [
+                "status"=>200,
+                "url"=> $url->UserURL
+            ];
+        }else{
+            return [
+                "status"=>404,
+                "url"=>""
+            ];
+        }
 //        return ($url->UserURL);
-        return $url;
     }
     public function index(Request $request, $userurls){
 
