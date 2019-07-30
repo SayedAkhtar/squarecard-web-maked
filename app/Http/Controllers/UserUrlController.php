@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\UserUrls;
 use Illuminate\Http\Request;
 
 use App\UserUrls as User;
@@ -21,9 +22,12 @@ class UserUrlController extends Controller
     // {
     //     $this->middleware('auth:api');
     // }
-
+    public function invite($invitecode){
+        $url = UserUrls::where('event_code', $invitecode)->first();
+        return $url->UserURL;
+    }
     public function index(Request $request, $userurls){
-        
+
         $url = User::where('UserURL',$userurls)->first();
         // return $url->id;
         $details = User::find($url->id)->BasicDetails;
@@ -70,7 +74,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_date")){
             $story->story_date = $request->story_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("story_title")){
             $story->story_title = $request->story_title;
@@ -78,15 +82,15 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_short_description")){
             $story->story_short_description = $request->story_short_description;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("story_long_description")){
             $story->story_long_description = $request->story_long_description;
             $stt .= "long description ";
         }
-        
+
         if($request ->has("story_image")){
-            $story->story_image = $request->story_image; 
+            $story->story_image = $request->story_image;
         }
         $story->save();
         // $upstory = Story::findOrFail($id);
@@ -100,13 +104,13 @@ class UserUrlController extends Controller
         $stt ="";
         $basicDetails->user_urls_id = $url->id;
         if($request->has("event_name")){
-            $basicDetails->event_name = $request->event_name;  
+            $basicDetails->event_name = $request->event_name;
         }
         else{
             $basicDetails->event_name = "";
         }
         if($request ->has("event_date")){
-            $basicDetails->event_date = $request->event_date; 
+            $basicDetails->event_date = $request->event_date;
         }
         else{
             $basicDetails->event_date = "";
@@ -129,7 +133,7 @@ class UserUrlController extends Controller
         else{
             $basicDetails->venue = "";
         }
-        
+
         $story->save();
         // $upstory = Story::findOrFail($id);
         return [$story, $stt];
@@ -168,7 +172,7 @@ class UserUrlController extends Controller
             $Family->bride_groom = "";
         }
         if($request ->has("about")){
-            $Family->about = $request->about; 
+            $Family->about = $request->about;
         }else{
             $Family->about = "";
         }
@@ -189,13 +193,13 @@ class UserUrlController extends Controller
             $Faq->faq_questions = "Default";
         }
         if($request ->has("faq_answer")){
-            $Faq->faq_answers = $request->faq_answer; 
+            $Faq->faq_answers = $request->faq_answer;
         }else{
             $Faq->faq_answers = "Default";
         }
-        
+
         $Faq->save();
-    
+
         return $Faq;
     }
 
@@ -210,7 +214,7 @@ class UserUrlController extends Controller
         }else{
             $images->image_name = "";
         }
-        
+
         $images->save();
         // $upstory = Story::findOrFail($id);
         return $images;
@@ -238,11 +242,11 @@ class UserUrlController extends Controller
             $Rsvp->mobile = "";
         }
         if($request ->has("comming")){
-            $Rsvp->comming = $request->comming; 
+            $Rsvp->comming = $request->comming;
         }else{
             $Rsvp->comming = false;
         }
-        
+
         $Rsvp->save();
         // $upstory = Story::findOrFail($id);
         return $Rsvp;
@@ -260,7 +264,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("event_start_date")){
             $schedule->event_start_date = $request->event_start_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("event_start_time")){
             $schedule->event_start_time = $request->event_start_time;
@@ -268,7 +272,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("event_end_date")){
             $schedule->event_end_date = $request->event_end_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("event_end_time")){
             $schedule->event_end_time = $request->event_end_time;
@@ -280,17 +284,17 @@ class UserUrlController extends Controller
         }
         if($request ->has("event_short_description")){
             $schedule->event_short_description = $request->event_short_description;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("event_long_description")){
             $schedule->event_long_description = $request->event_long_description;
             $stt .= "long description ";
         }
         if($request ->has("event_image")){
-            $schedule->event_image = $request->event_image; 
+            $schedule->event_image = $request->event_image;
         }
         if($request ->has("event_note")){
-            $schedule->event_note = $request->event_note; 
+            $schedule->event_note = $request->event_note;
         }
         $schedule->save();
         // $upstory = Story::findOrFail($id);
@@ -309,7 +313,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("registry_url")){
             $registry->registry_url = $request->registry_url;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("registry_image")){
             $registry->registry_image = $request->registry_image;
@@ -326,7 +330,7 @@ class UserUrlController extends Controller
         $story = User::find($url->id)->Story;
         return $url;
     }
- 
+
     public function editStory(Request $request, $userurls, $id){
         $url = User::where('UserURL',$userurls)->first();
         $stories = User::find($url->id)->Story;
@@ -338,7 +342,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_date")){
             $story->story_date = $request->story_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("story_title")){
             $story->story_title = $request->story_title;
@@ -346,14 +350,14 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_short_description")){
             $story->story_short_description = $request->story_short_description;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("story_long_description")){
             $story->story_long_description = $request->story_long_description;
             $stt .= "long description ";
         }
         if($request ->has("story_image")){
-            $story->story_image = $request->story_image; 
+            $story->story_image = $request->story_image;
         }
         $story->save();
         // $upstory = Story::findOrFail($id);
@@ -372,7 +376,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_date")){
             $story->story_date = $request->story_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("story_title")){
             $story->story_title = $request->story_title;
@@ -380,14 +384,14 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_short_description")){
             $story->story_short_description = $request->story_short_description;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("story_long_description")){
             $story->story_long_description = $request->story_long_description;
             $stt .= "long description ";
         }
         if($request ->has("story_image")){
-            $story->story_image = $request->story_image; 
+            $story->story_image = $request->story_image;
         }
         $story->save();
         // $upstory = Story::findOrFail($id);
@@ -405,7 +409,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_date")){
             $story->story_date = $request->story_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("story_title")){
             $story->story_title = $request->story_title;
@@ -413,14 +417,14 @@ class UserUrlController extends Controller
         }
         if($request ->has("story_short_description")){
             $story->story_short_description = $request->story_short_description;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("story_long_description")){
             $story->story_long_description = $request->story_long_description;
             $stt .= "long description ";
         }
         if($request ->has("story_image")){
-            $story->story_image = $request->story_image; 
+            $story->story_image = $request->story_image;
         }
         $story->save();
         // $upstory = Story::findOrFail($id);
@@ -438,7 +442,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("event_date")){
             $details->event_date = $request->event_date;
-            $stt .= "date "; 
+            $stt .= "date ";
         }
         if($request->has("bride_name")){
             $details->bride_name = $request->bride_name;
@@ -446,7 +450,7 @@ class UserUrlController extends Controller
         }
         if($request ->has("groom_name")){
             $details->groom_name = $request->groom_name;
-            $stt .= "short description "; 
+            $stt .= "short description ";
         }
         if($request->has("venue")){
             $details->venue = $request->venue;
@@ -457,7 +461,7 @@ class UserUrlController extends Controller
         return [$details, $stt];
     }
 
-    // Edit Images 
+    // Edit Images
     public function editImages(Request $request, $userurls, $id){
         $url = User::where('UserURL',$userurls)->first();
         $Images = User::find($url->id)->Story;
@@ -477,7 +481,7 @@ class UserUrlController extends Controller
     public function deleteStory(Request $request, $userurls, $id){
         $story = Story::findOrFail($id);
         if($story->delete()){
-            return $story;       
+            return $story;
         }
     }
 
@@ -485,7 +489,7 @@ class UserUrlController extends Controller
     public function deleteBasicDetail(Request $request, $userurls, $id){
         $delete = BasicDetails::findOrFail($id);
         if($delete->delete()){
-            return $delete;       
+            return $delete;
         }
     }
 
@@ -493,7 +497,7 @@ class UserUrlController extends Controller
     public function deleteFamily(Request $request, $userurls, $id){
         $family = Family::findOrFail($id);
         if($family->delete()){
-            return $family;       
+            return $family;
         }
     }
 
@@ -501,7 +505,7 @@ class UserUrlController extends Controller
     public function deleteFaq(Request $request, $userurls, $id){
         $Faq = Faq::findOrFail($id);
         if($Faq->delete()){
-            return $Faq;       
+            return $Faq;
         }
     }
 
@@ -509,7 +513,7 @@ class UserUrlController extends Controller
     public function deleteSchedule(Request $request, $userurls, $id){
         $schedule = Schedule::findOrFail($id);
         if($schedule->delete()){
-            return $schedule;       
+            return $schedule;
         }
     }
 
@@ -517,7 +521,7 @@ class UserUrlController extends Controller
     public function deleteRsvp(Request $request, $userurls, $id){
         $Rsvp = Rsvp::findOrFail($id);
         if($Rsvp->delete()){
-            return $Rsvp;       
+            return $Rsvp;
         }
     }
 
@@ -525,15 +529,15 @@ class UserUrlController extends Controller
     public function deleteImages(Request $request, $userurls, $id){
         $Images = Images::findOrFail($id);
         if($Images->delete()){
-            return $Images;       
+            return $Images;
         }
     }
-    
+
     //Delete Images
     public function deleteWeddingRegistry(Request $request, $userurls, $id){
         $wedding = WeddingRegister::findOrFail($id);
         if($wedding->delete()){
-            return $wedding;       
+            return $wedding;
         }
     }
 }

@@ -42,7 +42,8 @@ Route::delete('article/{id}', 'ArticleController@destroy');
 Route::post('/user/{email}','authenticationController@login');
 Route::post('/user/{id}','authenticationController@signup');
 
-Route::get('userurl/{userurls}', 'UserUrlController@index');
+//Route::get('userurl/{userurls}', 'UserUrlController@index');
+Route::get('userurl/{invitecode}', 'UserUrlController@invite');
 Route::get('userurl/{userurls}/edit/story/{id}', 'UserUrlController@getStory');
 
 //Edit Routes
