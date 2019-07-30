@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset("css/main.css")}}">
     <link rel="stylesheet" href="{{asset("css/mobile.css")}}">
-    
+
     <style>
   </style>
-    
 
-    
+
+
 </head>
 <body>
   <div id="before-loader">
@@ -29,7 +29,7 @@
     @yield('content')
     @include('builder.pages.share-modal')
     @include('builder.pages.help-modal')
-    
+
 
 
     <div id="mobile-in-landscape">
@@ -39,10 +39,11 @@
       </div>
 
     </div>
-    
+
 <!-- Script -->
 <script src="{{asset("js/jquery.min.js")}}"></script>
 <script src="{{asset("js/jquery-ui.min.js")}}"></script>
+<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <script src="{{asset("js/popper.min.js")}}"></script>
 <script src="{{asset("js/bootstrap.min.js")}}"></script>
 <script src="{{asset("js/owl.carousel.min.js")}}"></script>
@@ -75,6 +76,10 @@ $(document).ready(function(){
         $("#imageInput").trigger("click");
     });
 
+    $("#imageInputBtn").vclick(function(){
+            $("#imageInput").trigger("click");
+        });
+
 });
 
 function readURL(input) {
@@ -99,10 +104,10 @@ $('.important-form-feild').each(function(e){
 });
 
 $(".login.form-control").each(function(){
-  this.nextElementSibling.remove();  
+  this.nextElementSibling.remove();
 });
 $(".signup.form-control").each(function(){
-  this.nextElementSibling.remove();  
+  this.nextElementSibling.remove();
 });
 
 $(document).ready(function(){
@@ -134,12 +139,12 @@ $(document).ready(function(){
         });
 
         $("#share-web-url").click(function(){
-          
+
           $("#share-web-url > input").select();
           document.execCommand('copy');
           $("#share-web-url > input").prop('disabled', true);
           $("#share-web-url > small").css('opacity',1);
-          
+
         });
 
       $( window ).on( "orientationchange", function( event ) {
@@ -168,7 +173,7 @@ $(document).ready(function(){
           }
           $(this).toggleClass('active');
       });
-      
+
       $('#mobile-heading-menu').click(function(){
         $(".mobile-heading-menu--container").toggle();
       });
