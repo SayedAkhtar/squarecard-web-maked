@@ -33,6 +33,9 @@ $('#share-3').click(function(){
         .then(() => console.log('Successful share'))
         .catch((error) => console.log('Error sharing', error));
     }
+    else{
+        $("#share-3").hide();
+    }
 
   });
 </script>
